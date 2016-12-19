@@ -1,0 +1,16 @@
+{
+  "name": "pokemongoweb",
+  "version": "1.0.0",
+  "description": "pokemon go web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pokemon",
+    "go",
+    "fun"
+  ],
+  "author": "nick de rozarieux",
+  "license": "ISC"
+}
