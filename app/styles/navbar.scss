@@ -1,3 +1,5 @@
+$navPaneWidth : 33.333%;
+
 nav{
 	position         : fixed;
 	top              : 0;
@@ -5,4 +7,26 @@ nav{
 	width            : 100%;
 	height           : $navBarHeight;
 	background-color : $pink;
+
+	@include flex-block();
+
+	.title{
+		position  : relative;
+		margin    : 0;
+		font-size : $sizeLarge;
+		color     : $white;
+	}
+}
+
+nav .left,
+nav .middle,
+nav .right{
+	position : relative;
+	width    : $navPaneWidth;
+	height   : 100%;
+
+	@include flex-block();
+	@include justify-content(center);
+	@include align-items(center);
+	@include flex-grow(1);
 }

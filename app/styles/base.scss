@@ -1,5 +1,6 @@
 *{
 	@include box-sizing(border-box);
+	font-family: $defaultFont;
 }
 
 html{
@@ -15,6 +16,7 @@ body{
 	width    : 100%;
 	height   : auto;
 	overflow : hidden; 
+	margin   : 0;
 }
 
 #app{
@@ -27,10 +29,11 @@ body{
 }
 
 main{
-	display  : block;
-	position : relative;
-	width    : 100%;
-	height   : auto;
+	display     : block;
+	position    : relative;
+	width       : 100%;
+	height      : auto;
+	padding-top : $navBarHeight;
 
 	@include clear-fix();
 }
