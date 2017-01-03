@@ -27,7 +27,9 @@ class Home extends Component {
 			<section className="home">
 
             {/* Nav bar */}
-            <NavbarContainer />
+            <NavbarContainer 
+               name={this.props.navName}
+            />
             
             {/* TODO: add in the pokemon list */}
             <PokedexContainer />
@@ -40,8 +42,13 @@ class Home extends Component {
 
 }
 
+Home.defaultProps = {
+   navName : 'Pokedex'
+}
+
 Home.propTypes = {
    /* None */
+   navName : PropTypes.string
 }
 
 export default Home;

@@ -49,7 +49,7 @@ class Navbar extends Component {
                </div>
                <div className="middle">
                   <h2 className="title">
-                     Pokemon
+                     {this.props.name}
                   </h2>
                </div>
                <div className="right">
@@ -64,7 +64,7 @@ class Navbar extends Component {
 }
 
 Navbar.propTypes = {
-   /* None */
+  name : PropTypes.string
 }
 
 export default Navbar;

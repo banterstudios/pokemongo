@@ -26,6 +26,9 @@ body{
 	background : $mainBg;
 }
 
+/* Scroll bars */
+::-webkit-scrollbar { display:none; }
+
 #app{
 	position   : relative;
 	width      : $appWidth;

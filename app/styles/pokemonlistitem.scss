@@ -1,0 +1,47 @@
+$textPadding : 5px;
+
+.pokemon-list-item{
+	position: relative;
+	width: 100%;
+	margin-top:40px;
+	@include flex-block();
+	@include flex-direction(row);
+	@include justify-content(flex-end);
+	@include align-items(center);
+
+	.poke-num{
+		position: relative;
+		color: $gray;
+		margin-right: $textPadding;
+		font-size: $sizeXSmall;
+	}
+
+	.poke-name{
+		position: relative;
+		color: $darkGray;
+		margin-right : $textPadding;
+		font-size: $sizeXSmall;
+	}
+
+	.pokeball{
+		position: relative;
+		width: 32px;
+		height: 32px;
+		background-size: 32px 32px;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-image: url('../assets/pokeballoutline.png');
+
+		&:before{
+			content: '';
+			position: absolute;
+			top: -43px;
+			right: 0;
+			left: 0;
+			margin: 0 auto;
+			width: 1px;
+			height: 46px;
+			background: $breakline;
+		}
+	}
+}

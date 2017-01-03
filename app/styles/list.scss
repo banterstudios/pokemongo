@@ -6,15 +6,16 @@
 	-webkit-overflow-scrolling : touch;
 	margin: 0;
 	padding: 0;
+
 	list-style: none;
 
 
 	.list-item{
 		position: relative;
 		width: 100%;
-		@include clear-fix();
 		padding: 0;
 		margin:0;
 		list-style: none;
+		@include clear-fix();
 	}
 }
