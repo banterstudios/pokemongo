@@ -9,6 +9,7 @@ nav{
 	width            : 100%;
 	height           : $navBarHeight;
 	background-color : $pink;
+	z-index          : 9999;
 
 	@include flex-block();
 
@@ -59,4 +60,11 @@ nav .background-image{
     background-size     : contain;
     background-repeat   : no-repeat;
     background-position : center;
+}
+
+/* Media queries */
+@media screen and (max-width:$mobileWidth){
+	nav{
+		position: fixed;
+	}
 }
