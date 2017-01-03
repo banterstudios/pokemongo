@@ -1,39 +1,53 @@
+$phonePadding : 67px 41px 66px 42px;
+
 *{
 	@include box-sizing(border-box);
-	font-family: $defaultFont;
+	
+	font-family             : $defaultFont;
+	text-rendering          : optimizeLegibility !important;
+	-webkit-font-smoothing  : antialiased !important;
+	-moz-osx-font-smoothing : grayscale;
+
 }
 
 html{
 	position : relative;
 	width    : 100%;
-	height   : auto;
 	margin   : 0;
 	padding  : 0;
 }
 
 body{
-	position : relative;
-	width    : 100%;
-	height   : auto;
-	overflow : hidden; 
-	margin   : 0;
+	position   : relative;
+	width      : 100%;
+	margin     : 0;
+	background : $mainBg;
 }
 
 #app{
 	position   : relative;
-	width      : 100%;
-	height     : auto;
-	min-height : 100%;
-
-	@include clear-fix();
+	width      : 310px;
+	height     : 540px;
+	margin     : 40px auto;
 }
 
 main{
-	display     : block;
-	position    : relative;
-	width       : 100%;
-	height      : auto;
-	padding-top : $navBarHeight;
-
-	@include clear-fix();
+	display             : block;
+	position            : relative;
+	width               : 100%;
+	height              : 100%;
+	padding             : $phonePadding;
+	
+	&:before{
+		content             : '';
+		position            : absolute;
+		top                 : 0;
+		left                : 0;
+		width               : 100%;
+		height              : 100%;
+		background-size     : contain;
+		background-repeat   : no-repeat;
+		background-position : center;
+		background-image    : url('../assets/iphone.png');
+	}
 }

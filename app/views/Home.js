@@ -3,6 +3,9 @@ import React, { Component, PropTypes } from 'react';
 /* Import in the trainer container to be displayed on the home view */
 import TrainerContainer from '../containers/Trainer';
 
+/* Nav bar */
+import NavbarContainer from '../containers/Navbar';
+
 class Home extends Component {
 
    constructor(props) {
@@ -22,6 +25,9 @@ class Home extends Component {
 		return (
 
 			<section className="home">
+
+            {/* Nav bar */}
+            <NavbarContainer />
 
 				{/* trainer component */}
             <TrainerContainer trainerId="1" />

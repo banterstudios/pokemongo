@@ -2,9 +2,12 @@ import React, { PropTypes } from 'React';
 
 
 const BurgerMenu = (props) => {
+	
+	let _classNames = props.isMenuOpen ? 'burger-menu active' : 'burger-menu';
+
 	return (
 
-		<div className="burger-menu" onClick={props.onToggle}>
+		<div className={_classNames} onClick={props.onToggle}>
 		  <div className="burger" />
 		</div>
 
@@ -12,7 +15,8 @@ const BurgerMenu = (props) => {
 }
 
 BurgerMenu.propTypes = {
-	onToggle : PropTypes.func.isRequired
+	onToggle   : PropTypes.func.isRequired,
+	isMenuOpen : PropTypes.bool.isRequired,
 }
 
 export default BurgerMenu

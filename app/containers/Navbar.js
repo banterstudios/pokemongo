@@ -17,6 +17,11 @@ class Navbar extends Component {
    constructor(props) {
       super(props)
 
+      /* Set the default state */
+      this.state = {
+         isMenuOpen : false,
+      };
+
       /* Bind this */
       this.onBurgerMenuToggle = this.onBurgerMenuToggle.bind(this)
    }
@@ -27,6 +32,11 @@ class Navbar extends Component {
 
    onBurgerMenuToggle(){
       window.dev&&console.log('clicked!');
+
+      /* Toggle the menu state */
+      this.setState(prevState => ({
+         isMenuOpen : !prevState.isMenuOpen
+      }));
    }
 
    render() {
@@ -35,11 +45,11 @@ class Navbar extends Component {
 
    			<NavBarComponent>
                <div className="left">
-                  <BurgerMenuComponent onToggle={this.onBurgerMenuToggle}/>
+                  <BurgerMenuComponent isMenuOpen={this.state.isMenuOpen} onToggle={this.onBurgerMenuToggle}/>
                </div>
                <div className="middle">
                   <h2 className="title">
-                  Pokemon GO
+                     Trainer Nicole
                   </h2>
                </div>
                <div className="right">

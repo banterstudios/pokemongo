@@ -26,6 +26,7 @@ class Trainer extends Component {
          profileImgAlt : 'this is a cool photo',
          profileImgSrc : '',
          profileLevel  : 1,
+         profileType   : 'mystic'
       }
 
    }
@@ -59,13 +60,14 @@ class Trainer extends Component {
 
                {/* Trainer type */}
                <TrainerType
-
+                  type = { this.state.profileType }
                />
 
                {/* Trainer main image */}
                <ImageComponent    
                   imgAlt = { this.state.profileImgAlt }
-                  imgSrc = { this.state.profileImgSrc } />
+                  imgSrc = { this.state.profileImgSrc } 
+                  imgClasses = "trainer-image" />
 
                {/* Trainer Level */}
                <LevelComponent
