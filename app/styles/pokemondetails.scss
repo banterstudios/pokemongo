@@ -1,3 +1,5 @@
+$detailsContainerHeight : 60%;
+
 .pokemon-details{
 	position            : relative;
 	width               : 100%;
@@ -15,5 +17,24 @@
 		background-size     : cover;
 		background-repeat   : no-repeat;
 		background-position : center; 
+	}
+
+	.pokemon-details-container{
+		position : absolute;
+		height   : $detailsContainerHeight;
+		width    : 100%;
+		bottom   : 0;
+		left     : 0;
+		background-color : rgba($white, 0.9);
+	}
+
+	.pokemon-image{
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+		position: relative;
+		width: 50%;
+		height: 100px;
+		margin: -50px auto 0 auto;
 	}
 }

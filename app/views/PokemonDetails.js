@@ -84,7 +84,8 @@ class PokemonDetails extends Component {
 
       }else{
 
-         let _backdropSrc = this.getPokemonBackdrop(this.state.pokemon[0].type)
+         let _pokemon     = this.state.pokemon[0],
+             _backdropSrc = this.getPokemonBackdrop(_pokemon.type)
 
    		return (
 
@@ -103,7 +104,11 @@ class PokemonDetails extends Component {
                />
 
                <div className="pokemon-details-container">
-
+                  <BackgroundImageComponent
+                     imageSrc={_pokemon.image}
+                     classNames="pokemon-image"
+                  />
+                  
                </div>
 
    			</section>
