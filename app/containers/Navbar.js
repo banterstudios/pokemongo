@@ -23,10 +23,10 @@ class Navbar extends Component {
 
    }
 
-};
+}
 
 Navbar.propTypes = {
-
-};
+   /* None */
+}
 
 export default Navbar;
