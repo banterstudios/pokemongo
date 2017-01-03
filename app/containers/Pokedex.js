@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import { Link } from 'react-router';
 
 /* List container */
 import ListContainer from './List';
@@ -21,7 +22,7 @@ const createPokemonListItem = (pokemon, clickFunc) => {
 			let _pokeBallClasses = poke.selected ? 'pokeball active' : 'pokeball';
 
 			return (
-				<div className="pokemon-list-item" key={poke.id} onClick={(e) => clickFunc(e,poke)}>
+				<div className="pokemon-list-item" key={poke.id} onClick={e => clickFunc(e,poke)}>
 					<span className="poke-num">#{poke.num}</span>
 					<span className="poke-name">{poke.name}</span>
 					<div className={_pokeBallClasses}></div>
@@ -31,30 +32,31 @@ const createPokemonListItem = (pokemon, clickFunc) => {
 	)
 }
 
-const createPokemonInfo = (pokemon) => {
+const createPokemonInfo = (pokemon, clickFunc) => {
 	
 	return (
 		
 		pokemon.map(poke => {
 
 			let _classNames = poke.selected ? 'pokemon-info' : 'pokemon-info hidden',
-				_number     = `#${poke.num}`
+				_number     = `#${poke.num}`,
+				_link       = `/pokemondetails/${poke.id}`
 
 			return (
 
 				<div className={_classNames} key={poke.id}>
-					<BackgroundImageComponent
-						imageSrc={poke.image}
-					/>
-					<PokemonInfoToastComponent
-						name={poke.name}
-						backgroundColor={poke.color} />
+					<Link to={_link} >
+						<BackgroundImageComponent
+							imageSrc={poke.image}
+						/>
+						<PokemonInfoToastComponent
+							name={poke.name}
+							backgroundColor={poke.color} />
 
-					<PokemonInfoToastComponent
-						name={_number} />
-
+						<PokemonInfoToastComponent
+							name={_number} />
+					</Link>
 				</div>
-
 			)
 		})
 
@@ -68,7 +70,8 @@ class Pokedex extends Component {
       super(props)
 
       /* Bind this */
-      this.clickedPokemon = this.clickedPokemon.bind(this);
+      this.clickedPokemon     = this.clickedPokemon.bind(this);
+      this.clickedPokemonInfo = this.clickedPokemonInfo.bind(this);
 
       this.state = {
       	pokemon : pokedexData
@@ -97,12 +100,18 @@ class Pokedex extends Component {
    		}))
    }
 
+   clickedPokemonInfo(e, pokedata){
+
+   		/* Go to the pokemon details view. */
+   		
+   }
+
    render() {
 
 		return (
 			<div className="pokedex">
 				<div className="pokemon-info-container">
-					{createPokemonInfo(this.state.pokemon)}
+					{createPokemonInfo(this.state.pokemon, this.clickedPokemonInfo)}
 				</div>
 				<ListContainer>
 					{createPokemonListItem(this.state.pokemon, this.clickedPokemon)}
@@ -115,8 +124,5 @@ class Pokedex extends Component {
 
 }
 
-Pokedex.propTypes = {
-
-}
 
 export default Pokedex

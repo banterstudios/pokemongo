@@ -63,8 +63,14 @@ class Navbar extends Component {
 
 }
 
+Navbar.defaultProps = {
+   name : ''
+}
+
 Navbar.propTypes = {
-  name : PropTypes.string
+  name   : PropTypes.string,
+  back   : PropTypes.bool,
+  onBack : PropTypes.func
 }
 
 export default Navbar;
