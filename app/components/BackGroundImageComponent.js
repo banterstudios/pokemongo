@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 const BackGroundImage = props => {
 	
 	return (
-		<div className="background-image"  
+		<div className={props.classNames}  
 			 style={{
 			 	backgroundImage : `url(${props.imageSrc})`
 			 }}
@@ -12,8 +12,13 @@ const BackGroundImage = props => {
 
 }
 
+BackGroundImage.defaultProps = {
+	classNames : 'background-image'
+}
+
 BackGroundImage.propTypes = {
-	imageSrc : PropTypes.string.isRequired
+	imageSrc   : PropTypes.string.isRequired,
+	classNames : PropTypes.string 
 }
 
 export default BackGroundImage

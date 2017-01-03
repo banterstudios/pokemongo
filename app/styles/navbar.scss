@@ -13,6 +13,10 @@ nav{
 
 	@include flex-block();
 
+	&.transparent{
+		background-color: rgba( $darkGray, .5 );
+	}
+
 	.title{
 		position       : relative;
 		margin         : 0;

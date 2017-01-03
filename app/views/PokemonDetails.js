@@ -9,14 +9,18 @@ import BackgroundImageComponent from '../components/BackGroundImageComponent';
 /* Import pokedex data */
 import pokedexData from '../data/pokedexdata';
 
+/* Import the background according to the pokemon */
+import * as BG from '../data/pokemonbackdrops';
+
 class PokemonDetails extends Component {
 
    constructor(props) {
       super(props)
 
       /* Bind this */
-      this.backClicked = this.backClicked.bind(this)
+      this.backClicked          = this.backClicked.bind(this)
       this.updatePokemonDetails = this.updatePokemonDetails.bind(this)
+      this.getPokemonBackdrop   = this.getPokemonBackdrop.bind(this)
 
       //  Set the default state
       this.state = {
@@ -58,6 +62,16 @@ class PokemonDetails extends Component {
 
    }
 
+   getPokemonBackdrop(type){
+
+      return (type === 'poision' || type === 'bug')
+            ? BG.LEAF 
+            : type === 'water'
+            ? BG.WATER 
+            : BG.FIRE
+
+   }
+
    render() {
 
       if(!this.state.pokemon.length){
@@ -70,17 +84,21 @@ class PokemonDetails extends Component {
 
       }else{
 
+         let _backdropSrc = this.getPokemonBackdrop(this.state.pokemon[0].type)
+
    		return (
 
    			<section className="pokemon-details">
 
                <BackgroundImageComponent
-                  imageSrc={this.state.pokemon[0].image}
+                  imageSrc={_backdropSrc}
+                  classNames="main-bg"
                />
 
                {/* Nav bar */}
                <NavbarContainer 
                   back={true}
+                  transparent={true}
                   onBack={this.backClicked}
                />
 

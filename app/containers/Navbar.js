@@ -43,7 +43,7 @@ class Navbar extends Component {
 
    		return (
 
-   			<NavBarComponent>
+   			<NavBarComponent transparent={this.props.transparent}>
                <div className="left">
                   <BurgerMenuComponent isMenuOpen={this.state.isMenuOpen} onToggle={this.onBurgerMenuToggle}/>
                </div>
@@ -64,13 +64,16 @@ class Navbar extends Component {
 }
 
 Navbar.defaultProps = {
-   name : ''
+   name        : '',
+   back        : false,
+   transparent : false,
 }
 
 Navbar.propTypes = {
-  name   : PropTypes.string,
-  back   : PropTypes.bool,
-  onBack : PropTypes.func
+  name        : PropTypes.string,
+  back        : PropTypes.bool,
+  onBack      : PropTypes.func,
+  transparent : PropTypes.bool
 }
 
 export default Navbar;
