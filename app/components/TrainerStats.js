@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-function TrainerStats(props){
+const TrainerStats = props => {
 
 	return (
 		

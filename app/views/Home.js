@@ -24,10 +24,10 @@ class Home extends Component {
 			<section className="home">
 
 				{/* trainer component */}
-            <TrainerContainer 
-               trainerId="1" />
+            <TrainerContainer trainerId="1" />
 
             {/* pokemon list - trainor pokemon */}
+            
             {/* TODO: add in the pokemon list */}
 
 			</section>

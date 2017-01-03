@@ -3,7 +3,8 @@ import React from 'react';
 /* Nav bar */
 import NavbarContainer from '../containers/Navbar';
 
-function Main(props){
+
+const Main = props => {
 	return (
 
 		<main role="main">

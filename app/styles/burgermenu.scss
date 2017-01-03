@@ -1,0 +1,43 @@
+$burgerParentWidth  : 32px;
+$burgerParentHeight : 32px;
+$burgerStripeHeight : 4px; 
+
+.burger-menu{
+  position : relative;
+  width    : $burgerParentWidth;
+  height   : $burgerParentHeight;
+  
+  @include flex-block();
+  @include justify-content(center);
+  @include align-items(center);
+  
+  
+  .burger{
+    position         : relative;
+    width            : 100%;
+    height           : $burgerStripeHeight;
+    background-color : $white;
+    
+    &:before{
+      
+      content          : '';
+      position         : absolute;
+      top              : -8px;
+      left             : 5px;
+      width            : 100%;
+      height           : $burgerStripeHeight;
+      background-color : $white;
+      
+    }
+    
+    &:after{
+      content          : '';
+      position         : absolute;
+      bottom           : -8px;
+      left             : -5px;
+      width            : 100%;
+      height           : $burgerStripeHeight;
+      background-color : $white;
+    }
+  }
+}

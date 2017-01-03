@@ -67,7 +67,7 @@ class Trainer extends Component {
 
 Trainer.PropTypes = {
 
-   trainerId     : PropTypes.string.isRequired,
+   trainerId : PropTypes.string.isRequired,
 
 }
 

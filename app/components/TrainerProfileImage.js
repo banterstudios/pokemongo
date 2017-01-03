@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-function Trainer(props){
+const Trainer = props => {
 
 	return (
 		
@@ -8,6 +8,11 @@ function Trainer(props){
 
 	)
 
+}
+
+Trainer.propTypes = {
+	profileImgAlt : PropTypes.string.isRequired,
+	profileImgSrc : PropTypes.string.isRequired
 }
 
 export default Trainer
