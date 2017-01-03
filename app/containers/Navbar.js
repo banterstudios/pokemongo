@@ -49,7 +49,7 @@ class Navbar extends Component {
                </div>
                <div className="middle">
                   <h2 className="title">
-                     Trainer Nicole
+                     Pokemon
                   </h2>
                </div>
                <div className="right">

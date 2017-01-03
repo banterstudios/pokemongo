@@ -1,4 +1,6 @@
-$phonePadding : 67px 41px 66px 42px;
+$phonePadding : 83px 47px 81px 48px;
+$appWidth     : 375px;
+$appHeight    : 667px;
 
 *{
 	@include box-sizing(border-box);
@@ -26,9 +28,9 @@ body{
 
 #app{
 	position   : relative;
-	width      : 310px;
-	height     : 540px;
-	margin     : 40px auto;
+	width      : $appWidth;
+	height     : $appHeight;
+	margin     : 20px auto;
 }
 
 main{

@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 
-/* Import in the trainer container to be displayed on the home view */
-import TrainerContainer from '../containers/Trainer';
-
 /* Nav bar */
 import NavbarContainer from '../containers/Navbar';
+
+/* Pokedex */
+import PokedexContainer from '../containers/Pokedex';
 
 class Home extends Component {
 
@@ -28,13 +28,9 @@ class Home extends Component {
 
             {/* Nav bar */}
             <NavbarContainer />
-
-				{/* trainer component */}
-            <TrainerContainer trainerId="1" />
-
-            {/* pokemon list - trainor pokemon */}
             
             {/* TODO: add in the pokemon list */}
+            <PokedexContainer />
 
 			</section>
 
