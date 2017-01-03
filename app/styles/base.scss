@@ -29,6 +29,10 @@ body{
 /* Scroll bars */
 ::-webkit-scrollbar { display:none; }
 
+.hidden{
+	display: none;
+}
+
 #app{
 	position   : relative;
 	width      : $appWidth;

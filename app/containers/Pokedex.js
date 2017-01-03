@@ -6,14 +6,18 @@ import ListContainer from './List';
 /* Import pokedex data */
 import pokedexData from '../data/pokedexdata';
 
+/* Import background image component */
+import BackgroundImageComponent from '../components/BackGroundImageComponent';
+
+/* Import pokemon toast icon */
+import PokemonInfoToastComponent from '../components/PokemonInfoToast';
+
 /* Create markup for each pokemon */
 const createPokemonListItem = (pokemon, clickFunc) => {
-	
-	let self = this;
 
 	return (
-		pokemon.map((poke) => {
-			
+		pokemon.map( poke => {
+		
 			let _pokeBallClasses = poke.selected ? 'pokeball active' : 'pokeball';
 
 			return (
@@ -25,6 +29,37 @@ const createPokemonListItem = (pokemon, clickFunc) => {
 			)
 		})
 	)
+}
+
+const createPokemonInfo = (pokemon) => {
+	
+	return (
+		
+		pokemon.map(poke => {
+
+			let _classNames = poke.selected ? 'pokemon-info' : 'pokemon-info hidden',
+				_number     = `#${poke.num}`
+
+			return (
+
+				<div className={_classNames} key={poke.id}>
+					<BackgroundImageComponent
+						imageSrc={poke.image}
+					/>
+					<PokemonInfoToastComponent
+						name={poke.name}
+						backgroundColor={poke.color} />
+
+					<PokemonInfoToastComponent
+						name={_number} />
+
+				</div>
+
+			)
+		})
+
+	)
+
 }
 
 class Pokedex extends Component {
@@ -66,6 +101,9 @@ class Pokedex extends Component {
 
 		return (
 			<div className="pokedex">
+				<div className="pokemon-info-container">
+					{createPokemonInfo(this.state.pokemon)}
+				</div>
 				<ListContainer>
 					{createPokemonListItem(this.state.pokemon, this.clickedPokemon)}
 				</ListContainer>
