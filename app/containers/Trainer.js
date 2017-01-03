@@ -1,8 +1,20 @@
 import React, { Component, PropTypes } from 'react';
 
 /* Import trainer profile image component */
-import TrainerProfileImageComponent from '../components/TrainerProfileImage';
-import TrainerStatesComponent from '../components/TrainerStats';
+import ImageComponent from '../components/Image';
+
+/* Import level component for the trainer */
+import LevelComponent from '../components/LevelText';
+
+/* Trainer type */
+import TrainerType from '../components/TrainerType';
+
+/* Temp */
+
+/* Trainer image */
+import trainerImgSrc from '../assets/trainer.png';
+
+/* /Temp */
 
 class Trainer extends Component {
 
@@ -11,8 +23,9 @@ class Trainer extends Component {
 
       /* Set the initial state */
       this.state = {
-         profileImgAlt : '',
-         profileImgSrc : ''
+         profileImgAlt : 'this is a cool photo',
+         profileImgSrc : '',
+         profileLevel  : 1,
       }
 
    }
@@ -27,12 +40,7 @@ class Trainer extends Component {
       if(window.dev){
          
          this.setState({
-
-            profileImgAlt : 'this is a cool photo',
-
-            /* This is not finding the asset */
-            profileImgSrc : '../assets/022 - i0w85Sz.png',
-
+            profileImgSrc : trainerImgSrc,
          })
 
       }else{
@@ -49,14 +57,21 @@ class Trainer extends Component {
 
    			<div className="trainer">
 
-               {/* trainer main image */}
-               <TrainerProfileImageComponent    
-                  profileImgAlt = { this.state.profileImgAlt }
-                  profileImgSrc = { this.state.profileImgSrc } />
+               {/* Trainer type */}
+               <TrainerType
 
-               {/* trainer stats */}
-               {/* TODO: add in the props */}
-               <TrainerStatesComponent />
+               />
+
+               {/* Trainer main image */}
+               <ImageComponent    
+                  imgAlt = { this.state.profileImgAlt }
+                  imgSrc = { this.state.profileImgSrc } />
+
+               {/* Trainer Level */}
+               <LevelComponent
+                  level = { this.state.profileLevel }
+               />
+              
 
    			</div>
 

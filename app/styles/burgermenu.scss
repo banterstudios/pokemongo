@@ -1,11 +1,12 @@
 $burgerParentWidth  : 32px;
 $burgerParentHeight : 32px;
-$burgerStripeHeight : 4px; 
+$burgerStripeSize   : 4px; 
 
 .burger-menu{
   position : relative;
   width    : $burgerParentWidth;
   height   : $burgerParentHeight;
+  margin-left: $burgerStripeSize;
   
   @include flex-block();
   @include justify-content(center);
@@ -15,7 +16,7 @@ $burgerStripeHeight : 4px;
   .burger{
     position         : relative;
     width            : 100%;
-    height           : $burgerStripeHeight;
+    height           : $burgerStripeSize;
     background-color : $white;
     
     &:before{
@@ -25,7 +26,7 @@ $burgerStripeHeight : 4px;
       top              : -8px;
       left             : 5px;
       width            : 100%;
-      height           : $burgerStripeHeight;
+      height           : $burgerStripeSize;
       background-color : $white;
       
     }
@@ -36,7 +37,7 @@ $burgerStripeHeight : 4px;
       bottom           : -8px;
       left             : -5px;
       width            : 100%;
-      height           : $burgerStripeHeight;
+      height           : $burgerStripeSize;
       background-color : $white;
     }
   }

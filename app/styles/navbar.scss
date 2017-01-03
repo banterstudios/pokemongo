@@ -1,6 +1,7 @@
 @import 'burgermenu.scss';
 
-$navPaneWidth : 33.333%;
+$navPaneWidth      : 33.333%;
+$navTrainerImgSize : 32px;
 
 nav{
 	position         : fixed;
@@ -28,7 +29,30 @@ nav .right{
 	height   : 100%;
 
 	@include flex-block();
-	@include justify-content(center);
 	@include align-items(center);
 	@include flex-grow(1);
+}
+
+nav .left{
+	@include justify-content(flex-start);
+	padding-left : 20px;
+}
+
+nav .middle{
+	@include justify-content(center);
+	padding: 0 20px;
+}
+
+nav .right{
+	@include justify-content(flex-end);
+	padding-right : 20px;
+}
+
+nav .background-image{
+	position            : relative;
+    width               : $navTrainerImgSize;
+    height              : $navTrainerImgSize;
+    background-size     : contain;
+    background-repeat   : no-repeat;
+    background-position : center;
 }

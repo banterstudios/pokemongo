@@ -6,6 +6,12 @@ import NavBarComponent from '../components/Navbar';
 /* Burger Menu Component */
 import BurgerMenuComponent from '../components/BurgerMenu';
 
+/* Image component */
+import BackgroundImageComponent from '../components/BackGroundImageComponent';
+
+/* Image source for trainer image */
+import navBarTrainerImgSrc from '../assets/menuTrainer.png';
+
 class Navbar extends Component {
 
    constructor(props) {
@@ -37,7 +43,7 @@ class Navbar extends Component {
                   </h2>
                </div>
                <div className="right">
-                  <i className="trainer-icon"></i>
+                  <BackgroundImageComponent imageSrc={navBarTrainerImgSrc}/>
                </div>
             </NavBarComponent>
 
