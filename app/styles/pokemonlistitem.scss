@@ -42,6 +42,11 @@ $textPadding : 5px;
 			width: 1px;
 			height: 46px;
 			background: $breakline;
+			z-index: -1;
+		}
+
+		&.active{
+			background-image: url('../assets/pokeball.png');
 		}
 	}
 }

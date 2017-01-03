@@ -13,11 +13,14 @@ const createPokemonListItem = (pokemon, clickFunc) => {
 
 	return (
 		pokemon.map((poke) => {
+			
+			let _pokeBallClasses = poke.selected ? 'pokeball active' : 'pokeball';
+
 			return (
 				<div className="pokemon-list-item" key={poke.id} onClick={(e) => clickFunc(e,poke)}>
 					<span className="poke-num">#{poke.num}</span>
 					<span className="poke-name">{poke.name}</span>
-					<div className="pokeball"></div>
+					<div className={_pokeBallClasses}></div>
 				</div>
 			)
 		})
@@ -42,8 +45,21 @@ class Pokedex extends Component {
    }
 
    clickedPokemon(e, pokedata){
-   		window.dev&&console.log('yeehaa')
-   		window.dev&&console.log(pokedata)
+ 	
+ 		/*
+			toggle the current selected pokemon and deselect all other pokemon
+ 		*/
+   		this.setState(prevState => ({
+   			pokemon : prevState.pokemon.map(poke => {
+   				if(poke.id === pokedata.id){
+   					poke.selected = !poke.selected
+   				}else{
+   					poke.selected = false
+   				}
+
+   				return poke
+   			})
+   		}))
    }
 
    render() {
