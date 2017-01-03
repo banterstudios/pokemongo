@@ -1,0 +1,18 @@
+$imageSize : 80px;
+
+.pokemon-info{
+	position: relative;
+	width: 100%;
+	height: auto;
+	@include clear-fix();
+
+	.background-image{
+		position: relative;
+		width: 100%;
+		height: $imageSize;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+		margin-bottom: 10px;
+	}
+}
