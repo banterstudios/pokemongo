@@ -1,15 +1,74 @@
-.shift-fade-up-appear {
+/* Shift fade up */
+
+/* appear *//* Enter */
+.shift-fade-up-appear,
+.shift-fade-up-enter{
   transform:translate3d(0,20%,0);
   opacity: 0;
 }
 
-.shift-fade-up-appear.shift-fade-up-appear-active {
+.shift-fade-up-appear.shift-fade-up-appear-active,
+.shift-fade-up-enter.shift-fade-up-enter-active {
   opacity: 1;
   transform:translate3d(0,0,0);
   transition: transform .25s ease-out, opacity .25s ease-out;
 }
 
-/* Slow */
+/* Leave */
+
+/* /Shift fade up */
+
+
+
+/* Shift fade up delay */
+
+/* appear *//* Enter */
+.shift-fade-up-delay-appear,
+.shift-fade-up-delay-enter{
+  transform:translate3d(0,20%,0);
+  opacity: 0;
+}
+
+.shift-fade-up-delay-appear.shift-fade-up-delay-appear-active,
+.shift-fade-up-delay-enter.shift-fade-up-delay-enter-active {
+  opacity: 1;
+  transform:translate3d(0,0,0);
+  transition: transform .25s .25s ease-out, opacity .25s .25s ease-out;
+}
+
+/* Leave */
+
+/* /Shift fade up */
+
+
+
+
+/* Shift fade down delay */
+
+/* appear *//* Enter */
+.shift-fade-down-appear,
+.shift-fade-down-enter{
+  transform:translate3d(0,-20%,0);
+  opacity: 0;
+}
+
+.shift-fade-down-appear.shift-fade-down-appear-active,
+.shift-fade-down-enter.shift-fade-down-enter-active {
+  opacity: 1;
+  transform:translate3d(0,0,0);
+  transition: transform .25s ease-out, opacity .25s ease-out;
+}
+
+/* Leave */
+
+/* /Shift fade down */
+
+
+
+
+/* fade */
+
+/* appear */
 .fade-in-appear {
   opacity: 0;
 }
@@ -18,3 +77,46 @@
   opacity: 1;
   transition: opacity .4s ease-out;
 }
+
+/* Enter */
+
+/* Leave */
+
+/* /fade */
+
+
+
+/* center scale up */
+.center-scale-up-appear{
+	opacity: 0;
+	border-radius: 50%;
+	transform:scale3d(0,0,0);
+}
+.center-scale-up-appear.center-scale-up-appear-active{
+	opacity: 1;
+	transform:scale3d(1,1,1);
+	transform-origin: 50% 50%;
+	border-radius: 0;
+	transition: all .25s ease-out;
+}
+
+
+.center-scale-up-leave{
+	opacity: 1;
+	transform:scale3d(1,1,1);
+	transform-origin: 50% 50%;
+	border-radius: 0;
+}
+.center-scale-up-leave.center-scale-up-leave-active{
+	opacity: 0;
+	border-radius: 50%;
+	transform:scale3d(0,0,0);
+	transition: all .25s ease-out;
+}
+
+
+
+
+
+
+/* /center scale up */

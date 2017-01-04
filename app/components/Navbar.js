@@ -1,11 +1,21 @@
 import React, { PropTypes } from 'react';
 
+/* Transitions */
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 const Navbar = props => {
 	
 	let _classNames = props.transparent ? 'transparent' : '';
 	
 	return (
-		<nav className={_classNames} role="navigation">{props.children}</nav>
+		<ReactCSSTransitionGroup
+              transitionName="shift-fade-down"
+              transitionAppear={true}
+              transitionAppearTimeout={300}
+              transitionEnter={false}
+              transitionLeave={false} >
+			<nav className={_classNames} role="navigation">{props.children}</nav>
+		</ReactCSSTransitionGroup>
 	)
 }
 

@@ -98,26 +98,37 @@ class PokemonDetails extends Component {
    		return (
 
    			<section className="pokemon-details">
+               
+               <ReactCSSTransitionGroup
+                  transitionName="center-scale-up"
+                  transitionAppear={true}
+                  transitionAppearTimeout={300}
+                  transitionEnter={false}
+                  transitionLeave={true}
+                  transitionLeaveTimeout={300} >
 
-               <BackgroundImageComponent
-                  imageSrc={_backdropSrc}
-                  classNames="main-bg"
-               />
+                  <BackgroundImageComponent
+                     imageSrc={_backdropSrc}
+                     classNames="main-bg"
+                  />
+               </ReactCSSTransitionGroup>
 
-               {/* Nav bar */}
+               {/* Nav bar  */}
                <NavbarContainer 
                   back={true}
                   transparent={true}
                   name={_pokemon.name}
                   onBack={this.backClicked}
                />
-
+              
                <ReactCSSTransitionGroup
                   transitionName="shift-fade-up"
                   transitionAppear={true}
                   transitionAppearTimeout={300}
-                  transitionEnter={false}
-                  transitionLeave={false} >
+                  transitionEnter={true}
+                  transitionEnterTimeout={300}
+                  transitionLeave={true}
+                  transitionLeaveTimeout={300} >
           
 
                   <div className="pokemon-details-wrapper" key="pokemon-details-wrapper" >
