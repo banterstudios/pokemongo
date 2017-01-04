@@ -1,6 +1,7 @@
 // In webpack.config.js
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + '/app/index.html',
   filename: 'index.html',
   inject: 'body'
@@ -20,5 +21,13 @@ module.exports = {
       {test: /\.(jpe?g|png|gif|svg|ttf)$/i, loader: "file-loader" },
     ]
   },
-  plugins: [HTMLWebpackPluginConfig]
+  plugins: [
+    HTMLWebpackPluginConfig,
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    })
+  ],
+  devtool : 'cheap-module-source-map',
 };
