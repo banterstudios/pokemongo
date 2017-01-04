@@ -37,6 +37,10 @@ nav .left{
 	@include flex-block();
 	@include align-items(center);
 	@include justify-content(flex-start);
+
+	.back-button{
+		height: 24px;
+	}
 }
 
 nav .middle{
