@@ -53,6 +53,22 @@ const addShiftTransition = children => {
 	)
 }
 
+const addSideShiftTransition = children => {
+	return (
+		<ReactCSSTransitionGroup
+	      transitionName="shift-fade-right"
+	      transitionAppear={true}
+	      transitionEnter={true}
+	      transitionLeave={true}
+	      transitionAppearTimeout={300}
+	      transitionEnterTimeout={300}
+		  transitionLeaveTimeout={300}
+		  component="div">
+		  {children}
+		</ReactCSSTransitionGroup>
+	)
+}
+
 const createPokemonInfo = pokemon => {
 	
 	for(let i = 0, len = pokemon.length; i < len; i ++){
@@ -130,7 +146,7 @@ class Pokedex extends Component {
 					{createPokemonInfo(this.state.pokemon)}
 				</div>
 				<ListContainer>
-					{createPokemonListItem(this.state.pokemon, this.clickedPokemon)}
+					{addSideShiftTransition(createPokemonListItem(this.state.pokemon, this.clickedPokemon))}
 				</ListContainer>
 			</div>
 

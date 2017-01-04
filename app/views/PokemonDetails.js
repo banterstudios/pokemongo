@@ -104,8 +104,7 @@ class PokemonDetails extends Component {
                   transitionAppear={true}
                   transitionAppearTimeout={300}
                   transitionEnter={false}
-                  transitionLeave={true}
-                  transitionLeaveTimeout={300} >
+                  transitionLeave={false} >
 
                   <BackgroundImageComponent
                      imageSrc={_backdropSrc}
@@ -125,10 +124,8 @@ class PokemonDetails extends Component {
                   transitionName="shift-fade-up"
                   transitionAppear={true}
                   transitionAppearTimeout={300}
-                  transitionEnter={true}
-                  transitionEnterTimeout={300}
-                  transitionLeave={true}
-                  transitionLeaveTimeout={300} >
+                  transitionEnter={false}
+                  transitionLeave={false}>
           
 
                   <div className="pokemon-details-wrapper" key="pokemon-details-wrapper" >
