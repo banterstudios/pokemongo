@@ -13,6 +13,9 @@ import BackgroundImageComponent from '../components/BackGroundImageComponent';
 /* Import pokemon toast icon */
 import PokemonInfoToastComponent from '../components/PokemonInfoToast';
 
+/* Transitions */
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 /* Create markup for each pokemon */
 const createPokemonListItem = (pokemon, clickFunc) => {
 
@@ -20,48 +23,68 @@ const createPokemonListItem = (pokemon, clickFunc) => {
 		pokemon.map( poke => {
 		
 			let _pokeBallClasses = poke.selected ? 'pokeball active' : 'pokeball';
-
+				
 			return (
+
 				<div className="pokemon-list-item" key={poke.id} onClick={e => clickFunc(e,poke)}>
 					<span className="poke-num">#{poke.num}</span>
 					<span className="poke-name">{poke.name}</span>
 					<div className={_pokeBallClasses}></div>
 				</div>
+
 			)
 		})
 	)
 }
 
-const createPokemonInfo = (pokemon, clickFunc) => {
-	
+const addShiftTransition = children => {
 	return (
+		<ReactCSSTransitionGroup
+	      transitionName="shift-fade-up"
+	      transitionAppear={true}
+	      transitionEnter={true}
+	      transitionLeave={true}
+	      transitionAppearTimeout={300}
+	      transitionEnterTimeout={300}
+		  transitionLeaveTimeout={300}
+		  component="div">
+		  {children}
+		</ReactCSSTransitionGroup>
+	)
+}
+
+const createPokemonInfo = pokemon => {
+	
+	for(let i = 0, len = pokemon.length; i < len; i ++){
 		
-		pokemon.map(poke => {
+		let poke = pokemon[i]
 
-			let _classNames = poke.selected ? 'pokemon-info' : 'pokemon-info hidden',
-				_number     = `#${poke.num}`,
-				_link       = `/pokemondetails/${poke.id}`
+		if(!poke.selected)continue
 
-			return (
+		let _classNames = poke.selected ? 'pokemon-info' : 'pokemon-info hidden',
+			_number     = `#${poke.num}`,
+			_link       = `/pokemondetails/${poke.id}`
 
-				<div className={_classNames} key={poke.id}>
-					<Link to={_link} >
-						<BackgroundImageComponent
-							imageSrc={poke.image}
-						/>
-						<PokemonInfoToastComponent
+		return (
+
+			<div className={_classNames} key={poke.id}>
+				<Link to={_link} >
+					
+					{addShiftTransition(<BackgroundImageComponent imageSrc={poke.image} />)}
+					
+					{addShiftTransition(<PokemonInfoToastComponent
 							name={poke.name}
 							backgroundColor={poke.color} />
-
-						<PokemonInfoToastComponent
+					)}
+					
+					{addShiftTransition(<PokemonInfoToastComponent
 							name={_number} />
-					</Link>
-				</div>
-			)
-		})
+					)}
 
-	)
-
+				</Link>
+			</div>
+		)
+	}
 }
 
 class Pokedex extends Component {
@@ -71,8 +94,7 @@ class Pokedex extends Component {
 
       /* Bind this */
       this.clickedPokemon     = this.clickedPokemon.bind(this);
-      this.clickedPokemonInfo = this.clickedPokemonInfo.bind(this);
-
+ 
       this.state = {
       	pokemon : pokedexData
       }
@@ -100,18 +122,12 @@ class Pokedex extends Component {
    		}))
    }
 
-   clickedPokemonInfo(e, pokedata){
-
-   		/* Go to the pokemon details view. */
-   		
-   }
-
    render() {
 
 		return (
 			<div className="pokedex">
 				<div className="pokemon-info-container">
-					{createPokemonInfo(this.state.pokemon, this.clickedPokemonInfo)}
+					{createPokemonInfo(this.state.pokemon)}
 				</div>
 				<ListContainer>
 					{createPokemonListItem(this.state.pokemon, this.clickedPokemon)}

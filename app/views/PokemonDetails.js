@@ -127,12 +127,12 @@ class PokemonDetails extends Component {
                      {/* Container for the sliding card */}
                      <div className="pokemon-details-container">
                         
-                        {/* Background image of the chosen pokemon */}
+                        {/* Background image of the chosen pokemon */}               
                         <BackgroundImageComponent
                          imageSrc={_pokemon.image}
                          classNames="pokemon-image"
                         />
-
+         
                         {/* Toaster components for name and number of selected pokemon */}
                         <div className="pokemon-basic-info">
                            

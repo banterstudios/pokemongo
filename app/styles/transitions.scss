@@ -8,3 +8,13 @@
   transform:translate3d(0,0,0);
   transition: transform .25s ease-out, opacity .25s ease-out;
 }
+
+/* Slow */
+.fade-in-appear {
+  opacity: 0;
+}
+
+.fade-in-appear.fade-in-appear-active {
+  opacity: 1;
+  transition: opacity .4s ease-out;
+}
