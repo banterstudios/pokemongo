@@ -1,4 +1,4 @@
-$imageSize : 100px;
+$imageSize : 100%;
 
 .pokemon-info{
 	position: relative;
@@ -9,7 +9,7 @@ $imageSize : 100px;
 	.background-image{
 		position: relative;
 		width: 100%;
-		height: $imageSize;
+		padding-bottom: $imageSize;
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center;
