@@ -6,6 +6,9 @@ import NavbarContainer from '../containers/Navbar';
 /* Import background image component */
 import BackgroundImageComponent from '../components/BackGroundImageComponent';
 
+/* Import pokemon toast icon */
+import PokemonInfoToastComponent from '../components/PokemonInfoToast';
+
 /* Import pokedex data */
 import pokedexData from '../data/pokedexdata';
 
@@ -85,6 +88,7 @@ class PokemonDetails extends Component {
       }else{
 
          let _pokemon     = this.state.pokemon[0],
+             _number      = `#${_pokemon.num}`,
              _backdropSrc = this.getPokemonBackdrop(_pokemon.type)
 
    		return (
@@ -103,12 +107,38 @@ class PokemonDetails extends Component {
                   onBack={this.backClicked}
                />
 
-               <div className="pokemon-details-container">
-                  <BackgroundImageComponent
-                     imageSrc={_pokemon.image}
-                     classNames="pokemon-image"
-                  />
+               <div className="pokemon-details-wrapper">
+                  {/* Fill component to keep a transparent bg */}
+                  <div className="fill"></div>
                   
+                  {/* Container for the sliding card */}
+                  <div className="pokemon-details-container">
+                     
+                     {/* Background image of the chosen pokemon */}
+                     <BackgroundImageComponent
+                      imageSrc={_pokemon.image}
+                      classNames="pokemon-image"
+                     />
+
+                     {/* Toaster components for name and number of selected pokemon */}
+                     <div className="pokemon-basic-info">
+                        
+                         <PokemonInfoToastComponent
+                           name={_number} />
+
+                        <PokemonInfoToastComponent
+                           name={_pokemon.name}
+                           backgroundColor={_pokemon.color} />
+
+                     </div>
+
+                     {/* Selected pokemon description */}
+                     <p className="pokemon-desc">
+                        {_pokemon.description}
+                     </p>
+
+                  </div>
+
                </div>
 
    			</section>
