@@ -15,6 +15,7 @@ $appHeight    : 667px;
 html{
 	position : relative;
 	width    : 100%;
+	height   : 100%;
 	margin   : 0;
 	padding  : 0;
 }
@@ -22,8 +23,11 @@ html{
 body{
 	position   : relative;
 	width      : 100%;
+	height     : 100%;
 	margin     : 0;
 	background : $mainBg;
+
+	@include clear-fix();
 }
 
 /* Scroll bars */
@@ -37,7 +41,7 @@ body{
 	position   : relative;
 	width      : $appWidth;
 	height     : $appHeight;
-	margin     : 20px auto;
+	margin     : 0px auto;
 }
 
 main{

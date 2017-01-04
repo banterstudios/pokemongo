@@ -15,6 +15,10 @@ import pokedexData from '../data/pokedexdata';
 /* Import the background according to the pokemon */
 import * as BG from '../data/pokemonbackdrops';
 
+/* Transitions */
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
+
 class PokemonDetails extends Component {
 
    constructor(props) {
@@ -62,7 +66,7 @@ class PokemonDetails extends Component {
    }
 
    backClicked(){
-
+      this.context.router.goBack()
    }
 
    getPokemonBackdrop(type){
@@ -104,42 +108,53 @@ class PokemonDetails extends Component {
                <NavbarContainer 
                   back={true}
                   transparent={true}
+                  name={_pokemon.name}
                   onBack={this.backClicked}
                />
 
-               <div className="pokemon-details-wrapper">
-                  {/* Fill component to keep a transparent bg */}
-                  <div className="fill"></div>
-                  
-                  {/* Container for the sliding card */}
-                  <div className="pokemon-details-container">
+               <ReactCSSTransitionGroup
+                  transitionName="shift-fade-up"
+                  transitionAppear={true}
+                  transitionAppearTimeout={300}
+                  transitionEnter={false}
+                  transitionLeave={false} >
+          
+
+                  <div className="pokemon-details-wrapper" key="pokemon-details-wrapper" >
+                     {/* Fill component to keep a transparent bg */}
+                     <div className="fill"></div>
                      
-                     {/* Background image of the chosen pokemon */}
-                     <BackgroundImageComponent
-                      imageSrc={_pokemon.image}
-                      classNames="pokemon-image"
-                     />
-
-                     {/* Toaster components for name and number of selected pokemon */}
-                     <div className="pokemon-basic-info">
+                     {/* Container for the sliding card */}
+                     <div className="pokemon-details-container">
                         
-                         <PokemonInfoToastComponent
-                           name={_number} />
+                        {/* Background image of the chosen pokemon */}
+                        <BackgroundImageComponent
+                         imageSrc={_pokemon.image}
+                         classNames="pokemon-image"
+                        />
 
-                        <PokemonInfoToastComponent
-                           name={_pokemon.name}
-                           backgroundColor={_pokemon.color} />
+                        {/* Toaster components for name and number of selected pokemon */}
+                        <div className="pokemon-basic-info">
+                           
+                            <PokemonInfoToastComponent
+                              name={_number} />
+
+                           <PokemonInfoToastComponent
+                              name={_pokemon.name}
+                              backgroundColor={_pokemon.color} />
+
+                        </div>
+
+                        {/* Selected pokemon description */}
+                        <p className="pokemon-desc">
+                           {_pokemon.description}
+                        </p>
 
                      </div>
 
-                     {/* Selected pokemon description */}
-                     <p className="pokemon-desc">
-                        {_pokemon.description}
-                     </p>
-
                   </div>
 
-               </div>
+               </ReactCSSTransitionGroup>
 
    			</section>
 

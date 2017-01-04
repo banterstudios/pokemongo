@@ -13,10 +13,6 @@ class Home extends Component {
    }
 
    componentDidMount() {
-      
-      /* Load in the current trainor stats */
-
-      /* Load in the trainor pokemon */
 
    }
 

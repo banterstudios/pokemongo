@@ -5,6 +5,7 @@ $detailsContainerHeight : 60%;
 	width               : 100%;
 	height              : 100%; 
 	padding-top         : $navBarHeight;
+	overflow            : hidden;
 	
 	@include clear-fix();
 
@@ -74,7 +75,6 @@ $detailsContainerHeight : 60%;
 			float   : initial;
 			display :  inline-block;
 			margin  : 0 5px;
-
 		}
 	}
 
@@ -87,5 +87,21 @@ $detailsContainerHeight : 60%;
 		color      : $darkGray;
 		word-wrap  : break-word;
 		word-break : break-word;
+	}
+}
+
+/* Media queries */
+@media screen and (max-width:$mobileWidth){
+	.pokemon-details .pokemon-details-container{
+		padding: 10px 0px;
+	}
+
+	.pokemon-details .pokemon-image{
+		position: relative;
+		width: 100%;
+		left: initial;
+		top: initial;
+		margin-bottom: 10px;
+		@include transform(translateX(0));
 	}
 }

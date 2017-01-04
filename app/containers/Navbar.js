@@ -6,6 +6,9 @@ import NavBarComponent from '../components/Navbar';
 /* Burger Menu Component */
 import BurgerMenuComponent from '../components/BurgerMenu';
 
+/* Back Menu Component */
+import BackMenuComponent from '../components/BackMenu';
+
 /* Image component */
 import BackgroundImageComponent from '../components/BackGroundImageComponent';
 
@@ -24,6 +27,7 @@ class Navbar extends Component {
 
       /* Bind this */
       this.onBurgerMenuToggle = this.onBurgerMenuToggle.bind(this)
+      this.onBack             = this.onBack.bind(this)
    }
 
    componentDidMount() {
@@ -31,36 +35,44 @@ class Navbar extends Component {
    }
 
    onBurgerMenuToggle(){
-      window.dev&&console.log('clicked!');
 
       /* Toggle the menu state */
       this.setState(prevState => ({
          isMenuOpen : !prevState.isMenuOpen
       }));
+
+   }
+
+   onBack(){
+      if(typeof this.props.onBack === 'function')
+         this.props.onBack()
    }
 
    render() {
 
-   		return (
+		return (
 
-   			<NavBarComponent transparent={this.props.transparent}>
-               <div className="left">
+			<NavBarComponent transparent={this.props.transparent}>
+            <div className="left">
+               {
+                  this.props.back ?
+                  <BackMenuComponent onToggle={this.onBack} /> 
+                  :
                   <BurgerMenuComponent isMenuOpen={this.state.isMenuOpen} onToggle={this.onBurgerMenuToggle}/>
-               </div>
-               <div className="middle">
-                  <h2 className="title">
-                     {this.props.name}
-                  </h2>
-               </div>
-               <div className="right">
-                  <BackgroundImageComponent imageSrc={navBarTrainerImgSrc}/>
-               </div>
-            </NavBarComponent>
+               }      
+            </div>
+            <div className="middle">
+               <h2 className="title">
+                  {this.props.name}
+               </h2>
+            </div>
+            <div className="right">
+               <BackgroundImageComponent imageSrc={navBarTrainerImgSrc}/>
+            </div>
+         </NavBarComponent>
 
-   		)
-
+		)
    }
-
 }
 
 Navbar.defaultProps = {

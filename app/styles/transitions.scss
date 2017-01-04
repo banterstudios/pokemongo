@@ -1,0 +1,10 @@
+.shift-fade-up-appear {
+  transform:translate3d(0,20%,0);
+  opacity: 0;
+}
+
+.shift-fade-up-appear.shift-fade-up-appear-active {
+  opacity: 1;
+  transform:translate3d(0,0,0);
+  transition: transform .25s ease-out, opacity .25s ease-out;
+}

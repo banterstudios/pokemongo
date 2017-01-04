@@ -32,6 +32,7 @@ nav .left{
 	position     : relative;
 	width        : 32px;
 	padding-left : 5px;
+	cursor       : pointer;
 
 	@include flex-block();
 	@include align-items(center);
@@ -51,6 +52,7 @@ nav .right{
 	position     : relative;
 	width        : 32px;
 	padding-left : 5px;
+	cursor       : pointer;
 
 	@include flex-block();
 	@include align-items(center);
