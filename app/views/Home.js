@@ -30,7 +30,6 @@ class Home extends Component {
    }
 
    onBurgerClick(isMenuOpen){
-      window.dev&&console.log('sd!');
       this.setState({
          menuOpen : isMenuOpen
       })

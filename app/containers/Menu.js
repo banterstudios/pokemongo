@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-import { Link } from 'react-router';
 
 /* Transitions */
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
@@ -7,16 +6,15 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 /* Menu item data */
 import menuItemData from '../data/menuitemdata';
 
+/* Components */
+import MenuItemComponent from '../components/Menuitem';
+
 const createMenuItem = items => {
 	return items.map(item => {
 		return (
-			<li className="main-menu-item">
-				<Link to={item.link} >
-					<h4 className="text">
-						{item.name}
-					</h4>
-				</Link>
-			</li>
+			<MenuItemComponent
+				name={item.name}
+				link={item.link} />
 		)
 	})
 }

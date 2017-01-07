@@ -83,7 +83,23 @@ class PokemonDetails extends Component {
 
          return (
             <section className="pokemon-details">
-               No pokemon found!
+               
+               {/* Nav bar  */}
+               <NavbarContainer 
+                  back={true}
+                  transparent={true}
+                  name="Oops"
+                  onBack={this.backClicked}
+               />
+
+               <ReactCSSTransitionGroup
+                  transitionName="shift-fade-up"
+                  transitionAppear={true}
+                  transitionAppearTimeout={300}
+                  transitionEnter={false}
+                  transitionLeave={false}>
+                     <p className="no-poke-found-text">No pokemon found!</p>
+                  </ReactCSSTransitionGroup>
             </section>
          )
 

@@ -109,7 +109,7 @@ class Pokedex extends Component {
       super(props)
 
       /* Bind this */
-      this.clickedPokemon     = this.clickedPokemon.bind(this);
+      this.clickedPokemon = this.clickedPokemon.bind(this);
  
       this.state = {
       	pokemon : pokedexData
