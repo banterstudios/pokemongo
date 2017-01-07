@@ -116,28 +116,8 @@ class Pokedex extends Component {
 
    }
 
-   componentDidMount() {
-
-   }
-
    clickedPokemon(e, pokedata){
- 	
- 		/*
-			toggle the current selected pokemon and deselect all other pokemon
- 		*/
-   		// this.setState(prevState => ({
-   		// 	pokemon : prevState.pokemon.map(poke => {
-   		// 		if(poke.id === pokedata.id){
-   		// 			poke.selected = !poke.selected
-   		// 		}else{
-   		// 			poke.selected = false
-   		// 		}
-
-   		// 		return poke
-   		// 	})
-   		// }))
    		this.props.toggleSelectedPokemon(pokedata.id)
-
    }
 
    render() {
@@ -151,11 +131,8 @@ class Pokedex extends Component {
 					{addSideShiftTransition(createPokemonListItem(this.props.pokemon, this.clickedPokemon))}
 				</ListContainer>
 			</div>
-
 		)
-
    }
-
 }
 
 const mapStateToProps = (state, props) => ({
