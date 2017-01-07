@@ -15,7 +15,7 @@ let routes = (
 		<Route path='/' component={MainComponent}>
 			<IndexRoute component={HomeView} />
 			<Route path='pokemondetails/:id' component={PokemonDetailsView} />
-			<Route path='about' component={PokemonDetailsView} />
+			<Route path='about' component={AboutView} />
 		</Route>
 	</Router>
 	

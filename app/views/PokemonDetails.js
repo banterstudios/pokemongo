@@ -88,7 +88,7 @@ class PokemonDetails extends Component {
                <NavbarContainer 
                   back={true}
                   transparent={true}
-                  name="Oops"
+                  name={this.props.noPokemonNavName}
                   onBack={this.backClicked}
                />
 
@@ -185,8 +185,13 @@ class PokemonDetails extends Component {
    }
 }
 
+PokemonDetails.defaultProps = {
+   noPokemonNavName : 'Oops'
+}
+
 PokemonDetails.propTypes = {
-   navName : PropTypes.string
+   navName : PropTypes.string,
+   noPokemonNavName : PropTypes.string
 }
 
 PokemonDetails.contextTypes = {
