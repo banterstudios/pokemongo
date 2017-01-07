@@ -14,10 +14,6 @@ class About extends Component {
       this.backClicked = this.backClicked.bind(this);
    }
 
-   componentDidMount() {
-      
-   }
-
    backClicked(){
    	 this.context.router.push(`/`);
    }
@@ -48,6 +44,7 @@ class About extends Component {
 						<p className="about-text">
 							View the code on <a href="https://github.com/banterstudios/pokemongo" target="_blank">github.com/banterstudios</a>
 						</p>
+
 					</div>
 				</ReactCSSTransitionGroup>
 

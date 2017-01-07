@@ -2,6 +2,9 @@ Pokemon Go Pokedex
 
 Created by Nick de Rozarieux
 
+TODO:
+Unit tests
+Redux store
 
 How to:
 
