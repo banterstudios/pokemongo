@@ -65,7 +65,7 @@ class Home extends Component {
 
             {/* Main Menu */}
             <ReactCSSTransitionGroup
-               transitionName="shift-fade-up"
+               transitionName="shift-fade-left"
                transitionEnter={true}
                transitionLeave={true} 
                transitionEnterTimeout={300}
