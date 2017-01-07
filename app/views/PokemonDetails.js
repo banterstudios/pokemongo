@@ -9,11 +9,8 @@ import BackgroundImageComponent from '../components/BackGroundImageComponent';
 /* Import pokemon toast icon */
 import PokemonInfoToastComponent from '../components/PokemonInfoToast';
 
-/* Import pokedex data */
-import pokedexData from '../data/pokedexdata';
-
-/* Import the background according to the pokemon */
-import * as BG from '../data/pokemonbackdrops';
+/* Redux connect */
+import { connect } from 'react-redux';
 
 /* Transitions */
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
@@ -26,60 +23,17 @@ class PokemonDetails extends Component {
 
       /* Bind this */
       this.backClicked          = this.backClicked.bind(this)
-      this.updatePokemonDetails = this.updatePokemonDetails.bind(this)
-      this.getPokemonBackdrop   = this.getPokemonBackdrop.bind(this)
-
-      //  Set the default state
-      this.state = {
-         pokemon : []
-      }
-
-   }
-
-   componentWillMount(){
-
-      /* Check for the pokemon to display */
-      this.updatePokemonDetails();
-
-   }
-
-   updatePokemonDetails(props = this.props){
-
-      let _self    = this,
-          _pokemon = pokedexData.filter(poke => poke.id === parseInt(props.routeParams.id))
-
-      this.setState({
-         pokemon : _pokemon
-      })
-
-   }
-
-
-   componentWillReceiveProps(props){
-
-      /* If the url has changed, check for a new pokemon! */
-      this.updatePokemonDetails(props);
-
    }
 
    backClicked(){
       this.context.router.push(`/`);
    }
 
-   getPokemonBackdrop(type){
-
-      /* Return the background url based on the pokemon type */
-      return (type === 'poision' || type === 'bug')
-            ? BG.LEAF 
-            : type === 'water'
-            ? BG.WATER 
-            : BG.FIRE
-
-   }
-
    render() {
 
-      if(!this.state.pokemon.length){
+      let _pokemonArr = this.props.pokemon.filter(poke => poke.id === parseInt(this.props.routeParams.id));
+
+      if(!_pokemonArr.length){
 
          return (
             <section className="pokemon-details">
@@ -105,9 +59,9 @@ class PokemonDetails extends Component {
 
       }else{
 
-         let _pokemon     = this.state.pokemon[0],
-             _number      = `#${_pokemon.num}`,
-             _backdropSrc = this.getPokemonBackdrop(_pokemon.type)
+            let _pokemon     = _pokemonArr[0],
+                _number      = `#${_pokemon.num}`,
+                _backdropSrc  = _pokemon.bg
 
    		return (
 
@@ -198,4 +152,8 @@ PokemonDetails.contextTypes = {
    router : PropTypes.object.isRequired
 }
 
-export default PokemonDetails;
+const mapStateToProps = (state, props) => ({
+   pokemon : state.pokemon.pokemon
+})
+
+export default connect(mapStateToProps)(PokemonDetails)
