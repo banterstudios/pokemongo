@@ -39,7 +39,15 @@ class Navbar extends Component {
       /* Toggle the menu state */
       this.setState(prevState => ({
          isMenuOpen : !prevState.isMenuOpen
-      }));
+      }), ()=>{
+          
+          /* Fire event for a burger menu toggle*/
+          if(this.props.onBurgerMenuToggle) 
+            this.props.onBurgerMenuToggle(this.state.isMenuOpen)
+
+      });
+
+     
 
    }
 
@@ -82,10 +90,11 @@ Navbar.defaultProps = {
 }
 
 Navbar.propTypes = {
-  name        : PropTypes.string,
-  back        : PropTypes.bool,
-  onBack      : PropTypes.func,
-  transparent : PropTypes.bool
+  name               : PropTypes.string,
+  back               : PropTypes.bool,
+  onBack             : PropTypes.func,
+  onBurgerMenuToggle : PropTypes.func,
+  transparent        : PropTypes.bool
 }
 
 export default Navbar;
