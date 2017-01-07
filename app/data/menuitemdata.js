@@ -7,10 +7,6 @@ const items = [
 		name : 'About',
 		link : '/about'
 	},
-	{
-		name : 'Gym Leaders',
-		link : '/gym-leaders'
-	}
 ] 
 
 export default items

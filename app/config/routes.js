@@ -7,6 +7,7 @@ import MainComponent from '../components/Main';
 /* Views */
 import HomeView from '../views/Home';
 import PokemonDetailsView from '../views/PokemonDetails';
+import AboutView from '../views/About';
 
 let routes = (
 
@@ -14,6 +15,7 @@ let routes = (
 		<Route path='/' component={MainComponent}>
 			<IndexRoute component={HomeView} />
 			<Route path='pokemondetails/:id' component={PokemonDetailsView} />
+			<Route path='about' component={PokemonDetailsView} />
 		</Route>
 	</Router>
 	
