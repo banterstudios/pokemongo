@@ -54,9 +54,6 @@ class PokemonDetails extends Component {
 
    }
 
-   componentDidMount() {
-
-   }
 
    componentWillReceiveProps(props){
 
@@ -66,7 +63,7 @@ class PokemonDetails extends Component {
    }
 
    backClicked(){
-      this.context.router.goBack()
+      this.context.router.push(`/`);
    }
 
    getPokemonBackdrop(type){
