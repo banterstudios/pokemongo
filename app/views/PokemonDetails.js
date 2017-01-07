@@ -68,6 +68,7 @@ class PokemonDetails extends Component {
 
    getPokemonBackdrop(type){
 
+      /* Return the background url based on the pokemon type */
       return (type === 'poision' || type === 'bug')
             ? BG.LEAF 
             : type === 'water'
@@ -169,7 +170,6 @@ class PokemonDetails extends Component {
 }
 
 PokemonDetails.propTypes = {
-   /* None */
    navName : PropTypes.string
 }
 
