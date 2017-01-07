@@ -1,6 +1,15 @@
 /* React */
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+
+/* Redux */
+import { Provider } from 'react-redux';
+
+/* Store */
+import store from './store/store';
+
+/* React additional */
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 /* Routes */
 import routes from './config/routes';
@@ -9,7 +18,17 @@ import routes from './config/routes';
 import './styles/index.scss';
 
 /* dev */
-window.dev = true;
+window.dev = true
+
+/* Initialise teh tap event */
+injectTapEventPlugin()
 
 /* Render */
-ReactDOM.render(routes, document.getElementById('app'));
+render(
+   
+   <Provider store={store}>
+     {routes}
+   </Provider>,
+
+   document.getElementById('app')
+)
