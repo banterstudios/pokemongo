@@ -4,8 +4,11 @@ import { Link } from 'react-router';
 /* List container */
 import ListContainer from './List';
 
-/* Import pokedex data */
-import pokedexData from '../data/pokedexdata';
+/* Redux connect */
+import { connect } from 'react-redux';
+
+/* Actions */
+import { toggleSelectedPokemon } from '../actions';
 
 /* Import background image component */
 import BackgroundImageComponent from '../components/BackGroundImageComponent';
@@ -110,10 +113,7 @@ class Pokedex extends Component {
 
       /* Bind this */
       this.clickedPokemon = this.clickedPokemon.bind(this);
- 
-      this.state = {
-      	pokemon : pokedexData
-      }
+
    }
 
    componentDidMount() {
@@ -125,17 +125,19 @@ class Pokedex extends Component {
  		/*
 			toggle the current selected pokemon and deselect all other pokemon
  		*/
-   		this.setState(prevState => ({
-   			pokemon : prevState.pokemon.map(poke => {
-   				if(poke.id === pokedata.id){
-   					poke.selected = !poke.selected
-   				}else{
-   					poke.selected = false
-   				}
+   		// this.setState(prevState => ({
+   		// 	pokemon : prevState.pokemon.map(poke => {
+   		// 		if(poke.id === pokedata.id){
+   		// 			poke.selected = !poke.selected
+   		// 		}else{
+   		// 			poke.selected = false
+   		// 		}
 
-   				return poke
-   			})
-   		}))
+   		// 		return poke
+   		// 	})
+   		// }))
+   		this.props.toggleSelectedPokemon(pokedata.id)
+
    }
 
    render() {
@@ -143,10 +145,10 @@ class Pokedex extends Component {
 		return (
 			<div className="pokedex">
 				<div className="pokemon-info-container">
-					{createPokemonInfo(this.state.pokemon)}
+					{createPokemonInfo(this.props.pokemon)}
 				</div>
 				<ListContainer>
-					{addSideShiftTransition(createPokemonListItem(this.state.pokemon, this.clickedPokemon))}
+					{addSideShiftTransition(createPokemonListItem(this.props.pokemon, this.clickedPokemon))}
 				</ListContainer>
 			</div>
 
@@ -156,5 +158,10 @@ class Pokedex extends Component {
 
 }
 
+const mapStateToProps = (state, props) => ({
+   
+   	pokemon : state.pokemon.pokemon
+   
+})
 
-export default Pokedex
+export default connect(mapStateToProps, {toggleSelectedPokemon})(Pokedex)

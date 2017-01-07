@@ -1,1 +1,6 @@
-export const ADD_POKEMON = 'ADD_POKEMON'
+import * as ActionTypes from './actiontypes';
+
+export const toggleSelectedPokemon = id => ({
+	type : ActionTypes.TOGGLE_SELECTED_POKEMON,
+	id
+})
