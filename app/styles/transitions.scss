@@ -3,7 +3,7 @@
 /* appear *//* Enter */
 .shift-fade-up-appear,
 .shift-fade-up-enter{
-  transform:translate3d(0,20%,0);
+  transform:translate3d(0,5%,0);
   opacity: 0;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .shift-fade-up-leave.shift-fade-up-leave-active{
-  transform:translate3d(0,20%,0);
+  transform:translate3d(0,5%,0);
   opacity: 0;
   transition: transform .25s ease-out, opacity .25s ease-out;
 }
@@ -49,6 +49,42 @@
 /* Leave */
 
 /* /Shift fade right */
+
+
+
+/* Shift fade left */
+
+/* appear *//* Enter */
+.shift-fade-left-appear,
+.shift-fade-left-enter{
+  transform:translate3d(-5%,0,0);
+  opacity: 0;
+}
+
+.shift-fade-left-appear.shift-fade-left-appear-active,
+.shift-fade-left-enter.shift-fade-left-enter-active {
+  opacity: 1;
+  transform:translate3d(0,0,0);
+  transition: transform .25s ease-out, opacity .25s ease-out;
+}
+
+/* Leave */
+.shift-fade-left-leave{
+  transform:translate3d(0,0,0);
+  opacity: 1;
+}
+
+.shift-fade-left-leave.shift-fade-left-leave-active{
+  opacity: 0;
+  transform:translate3d(-5%,0,0);
+  transition: transform .25s ease-out, opacity .25s ease-out;
+}
+
+
+/* /Shift fade left */
+
+
+
 
 
 /* Shift fade up delay */

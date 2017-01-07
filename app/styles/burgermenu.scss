@@ -27,7 +27,7 @@ $burgerStripeSize : 2px;
       width            : 100%;
       height           : $burgerStripeSize;
       background-color : $white;
-      @include transition(transform .4s ease-out);
+      @include transition(all .4s ease-out);
       
     }
     
@@ -39,7 +39,7 @@ $burgerStripeSize : 2px;
       width            : 100%;
       height           : $burgerStripeSize;
       background-color : $white;
-      @include transition(transform .4s ease-out);
+      @include transition(all .4s ease-out);
     }
   }
 }
@@ -49,11 +49,13 @@ $burgerStripeSize : 2px;
 
 
     .burger:before{ 
-      @include transform(translate3d(-2px,0,0));
+      opacity:0;
+      @include transform(translate3d(-5px,0,0));
     }
     
     .burger:after{
-     @include transform(translate3d(2px,0,0));
+      opacity: 0;
+      @include transform(translate3d(-5px,0,0));
     }
  
 }

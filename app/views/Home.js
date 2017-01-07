@@ -69,7 +69,7 @@ class Home extends Component {
                transitionEnter={true}
                transitionLeave={true} 
                transitionEnterTimeout={300}
-               transitionLeaveTimeout={300}>
+               transitionLeaveTimeout={300} >
                {this.renderMenuContainer()} 
             </ReactCSSTransitionGroup>
             
