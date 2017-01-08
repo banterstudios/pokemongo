@@ -4,10 +4,16 @@ $textPadding : 5px;
 	position: relative;
 	width: 100%;
 	margin-top:40px;
+	list-style: none;
+	cursor : pointer;
 	@include flex-block();
 	@include flex-direction(row);
 	@include justify-content(flex-end);
 	@include align-items(center);
+
+	&:last-child{
+		margin-bottom:10px;
+	}
 
 	.poke-num{
 		position: relative;

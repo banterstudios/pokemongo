@@ -1,22 +1,18 @@
 import React, { PropTypes } from 'react';
 
-import { Link } from 'react-router';
-
 const Menuitem = props => {
 	return (
-		<li className="main-menu-item" >
-			<Link to={props.link} >
-				<h4 className="text">
-					{props.name}
-				</h4>
-			</Link>
+		<li className="main-menu-item" onClick={ props.onClick }>
+			<h4 className="text">
+				{props.name}
+			</h4>
 		</li>
 	)
 }
 
 Menuitem.propTypes = {
-	link : PropTypes.string.isRequired,
-	name : PropTypes.string.isRequired
+	name    : PropTypes.string.isRequired,
+	onClick : PropTypes.func.isRequired
 }
 
 export default Menuitem

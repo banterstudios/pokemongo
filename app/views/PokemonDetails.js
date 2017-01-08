@@ -78,9 +78,10 @@ class PokemonDetails extends Component {
                      imageSrc={_backdropSrc}
                      classNames="main-bg"
                   />
+
                </ReactCSSTransitionGroup>
 
-               {/* Nav bar  */}
+   
                <NavbarContainer 
                   back={true}
                   transparent={true}
@@ -95,24 +96,20 @@ class PokemonDetails extends Component {
                   transitionEnter={false}
                   transitionLeave={false}>
           
-
-                  <div className="pokemon-details-wrapper" key="pokemon-details-wrapper" >
-                     {/* Fill component to keep a transparent bg */}
+                  <div className="spaced-card-wrapper" key="pokemon-details-wrapper" >
+                     
                      <div className="fill"></div>
                      
-                     {/* Container for the sliding card */}
-                     <div className="pokemon-details-container">
-                        
-                        {/* Background image of the chosen pokemon */}               
+                     <div className="spaced-card-container">
+                                      
                         <BackgroundImageComponent
                          imageSrc={_pokemon.image}
                          classNames="pokemon-image"
                         />
          
-                        {/* Toaster components for name and number of selected pokemon */}
                         <div className="pokemon-basic-info">
                            
-                            <PokemonInfoToastComponent
+                           <PokemonInfoToastComponent
                               name={_number} />
 
                            <PokemonInfoToastComponent
@@ -121,7 +118,6 @@ class PokemonDetails extends Component {
 
                         </div>
 
-                        {/* Selected pokemon description */}
                         <p className="pokemon-desc">
                            {_pokemon.description}
                         </p>

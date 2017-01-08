@@ -1,9 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 
-/* List container */
-import ListContainer from './List';
-
 /* Redux connect */
 import { connect } from 'react-redux';
 
@@ -19,22 +16,24 @@ import PokemonInfoToastComponent from '../components/PokemonInfoToast';
 /* Transitions */
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
+/* Components */
+import ListComponent from '../components/List';
+import PokemonListItemComponent from '../components/PokemonListItem';
+
 /* Create markup for each pokemon */
 const createPokemonListItem = (pokemon, clickFunc) => {
 
 	return (
-		pokemon.map( poke => {
-		
-			let _pokeBallClasses = poke.selected ? 'pokeball active' : 'pokeball';
-				
+		pokemon.map( poke => {		
 			return (
-
-				<div className="pokemon-list-item" key={poke.id} onClick={e => clickFunc(e,poke)}>
-					<span className="poke-num">#{poke.num}</span>
-					<span className="poke-name">{poke.name}</span>
-					<div className={_pokeBallClasses}></div>
-				</div>
-
+				<PokemonListItemComponent 
+					onClick={clickFunc}
+					isActive={poke.selected}
+					id={poke.id}
+					num={poke.num}
+					name={poke.name}
+					key={poke.id}
+				/>
 			)
 		})
 	)
@@ -116,8 +115,8 @@ class Pokedex extends Component {
 
    }
 
-   clickedPokemon(e, pokedata){
-   		this.props.toggleSelectedPokemon(pokedata.id)
+   clickedPokemon(e, id){
+   		this.props.toggleSelectedPokemon(id)
    }
 
    render() {
@@ -127,18 +126,16 @@ class Pokedex extends Component {
 				<div className="pokemon-info-container">
 					{createPokemonInfo(this.props.pokemon)}
 				</div>
-				<ListContainer>
+				<ListComponent>
 					{addSideShiftTransition(createPokemonListItem(this.props.pokemon, this.clickedPokemon))}
-				</ListContainer>
+				</ListComponent>
 			</div>
 		)
    }
 }
 
 const mapStateToProps = (state, props) => ({
-   
    	pokemon : state.pokemon.pokemon
-   
 })
 
 export default connect(mapStateToProps, {toggleSelectedPokemon})(Pokedex)

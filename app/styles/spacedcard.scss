@@ -1,0 +1,34 @@
+$detailsContainerHeight : 60%;
+
+.spaced-card-wrapper{
+		position : relative;
+		width    : 100%;
+		height   : 100%;
+		overflow : auto;
+	}
+
+	.fill{
+		position : relative;
+		width    : 100%;
+		height   : 40%;
+	}
+
+	.spaced-card-container{
+		position   : relative;
+		width      : 100%;
+		min-height : $detailsContainerHeight;
+		padding    : 95px 0 10px 0;
+		@include flex-block();
+		@include flex-direction(column);
+		@include justify-content(flex-end);
+
+		&:before{
+			content          : '';
+			position         : absolute;
+			top              : 0;
+			left             : 0;
+			width            : 100%;
+			height           : 100%;
+			background-color : rgba($white, 0.9);
+		}
+	}

@@ -1,0 +1,40 @@
+.form-field-wrapper{
+	position: relative;
+	width: 100%;
+	margin-bottom: 5px;
+	padding:0 10px;
+}
+
+.form-field-input{
+	position: relative;
+	width: 100%;
+	height: 50px;
+	background-color:$inputColor;
+	outline: none;
+	border-style: none;
+    border-radius: 0;
+    border:0;
+    padding:10px;
+    @include appearance();
+    color:$darkGray;
+    font-size:$sizeXSmall;
+}
+
+.form-field-label{
+
+}
+
+.form-field-submit-button{
+	position: relative;
+	width: 100%;
+	height: 50px;
+	background-color:$submitColor;
+	color:$white;
+    font-size:$sizeXSmall;
+    text-align: center;
+    outline: none;
+    border:0;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Main = props => {
+const App = props => {
 	return (
 
 		<main role="main">
@@ -10,4 +10,4 @@ const Main = props => {
 	)
 }
 
-export default Main;
+export default App;

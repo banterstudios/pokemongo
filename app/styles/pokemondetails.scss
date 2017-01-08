@@ -1,11 +1,9 @@
-$detailsContainerHeight : 60%;
 
 .pokemon-details{
 	position            : relative;
 	width               : 100%;
 	height              : 100%; 
 	padding-top         : $navBarHeight;
-	overflow            : hidden;
 	
 	@include clear-fix();
 
@@ -20,40 +18,9 @@ $detailsContainerHeight : 60%;
 		background-position : center; 
 	}
 
-	.pokemon-details-wrapper{
-		position : relative;
-		width    : 100%;
-		height   : 100%;
-		overflow : auto;
-	}
-
-	.fill{
-		position : relative;
-		width    : 100%;
-		height   : 40%;
-	}
-
-	.pokemon-details-container{
-		position   : relative;
-		width      : 100%;
-		min-height : $detailsContainerHeight;
-		padding    : 95px 0 10px 0;
-
-		&:before{
-			content          : '';
-			position         : absolute;
-			top              : 0;
-			left             : 0;
-			width            : 100%;
-			height           : 100%;
-			background-color : rgba($white, 0.9);
-		}
-	}
 
 	.pokemon-image{
-		background-repeat   : no-repeat;
 		background-size     : contain;
-		background-position : center;
 		position            : absolute;
 		top                 : -75px;
 		left                : 50%;

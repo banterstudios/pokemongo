@@ -19,11 +19,23 @@
 /* Base styles */
 @import 'base.scss';
 
+/* Spaced card */
+@import 'spacedcard.scss';
+
+/* Form */
+@import 'form.scss';
+
+/* Background image */
+@import 'backgroundimage.scss';
+
 /* Buttons */
 @import 'buttons.scss';
 
 /* List */
 @import 'list.scss';
+
+/* Login Form */
+@import 'loginform.scss';
 
 /* pokemon info toast */
 @import 'pokemoninfotoast.scss';
@@ -42,6 +54,9 @@
 
 /* Home View */
 @import 'home.scss';
+
+/* Login View */
+@import 'login.scss';
 
 /* Pokemon details view */
 @import 'pokemondetails.scss';

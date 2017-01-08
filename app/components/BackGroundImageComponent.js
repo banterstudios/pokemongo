@@ -2,8 +2,10 @@ import React, { PropTypes } from 'react';
 
 const BackGroundImage = props => {
 	
+	let _classNames = props.classNames.indexOf('background-image') >= 0 ? props.classNames : `background-image ${props.classNames}`
+
 	return (
-		<div className={props.classNames}  
+		<div className={_classNames}  
 			 style={{
 			 	backgroundImage : `url(${props.imageSrc})`
 			 }}
