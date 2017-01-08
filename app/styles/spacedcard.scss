@@ -1,11 +1,11 @@
 $detailsContainerHeight : 60%;
 
 .spaced-card-wrapper{
-		position : relative;
-		width    : 100%;
-		height   : 100%;
-		overflow : auto;
-	}
+	position : relative;
+	width    : 100%;
+	height   : 100%;
+	overflow : auto;
+
 
 	.fill{
 		position : relative;
@@ -32,3 +32,13 @@ $detailsContainerHeight : 60%;
 			background-color : rgba($white, 0.9);
 		}
 	}
+}
+
+@media screen and (max-width:$mobileWidth){
+	.spaced-card-wrapper .spaced-card-container{
+		padding-left: 10px;
+		padding-right: 10px;
+		display: block;
+		@include justify-content(initial);
+	}
+}
