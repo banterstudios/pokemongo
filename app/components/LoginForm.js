@@ -59,7 +59,8 @@ const LoginForm = props => {
 								type="email"
 								placeholder="Email"
 								tabIndex='1'
-								onChange={props.onChange}
+								value={props.emailValue}
+								onChange={ props.onEmailChange }
 							/>
 						</div>
 
@@ -68,13 +69,14 @@ const LoginForm = props => {
 								className="form-field-input"
 								type="password"
 								tabIndex="2"
+								value={props.passwordValue}
 								placeholder="Password"
-								onChange={props.onChange}
+								onChange={ props.onPasswordChange }
 							/>
 						</div>
 
 						<div className="form-field-wrapper">
-							<button className="form-field-submit-button" onClick={ ()=>{ props.onSubmit('sd','sd') } }>
+							<button className="form-field-submit-button" onClick={ props.onSubmit }>
 								log in
 							</button>
 						</div>
@@ -89,9 +91,12 @@ const LoginForm = props => {
 }
 
 LoginForm.propTypes = {
-	onChange : PropTypes.func,
-	onSubmit : PropTypes.func,
-	error    : PropTypes.string
+	onEmailChange    : PropTypes.func.isRequired,
+	onPasswordChange : PropTypes.func.isRequired,
+	onSubmit         : PropTypes.func.isRequired,
+	error            : PropTypes.string,
+	emailValue       : PropTypes.string.isRequired,
+	passwordValue    : PropTypes.string.isRequired
 }
 
 export default LoginForm

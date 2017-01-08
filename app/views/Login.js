@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
 /* Login form */
-import LoginForm from '../components/LoginForm';
+import LoginFormContainer from '../containers/LoginForm';
 
 /* Redux connect */
 import { connect } from 'react-redux';
@@ -20,6 +20,7 @@ class Login extends Component {
    }
 
    onSubmit(email, password){
+   		window.dev&&console.log(email,password)
    		this.props.performLogin(email, password)
    		.then(()=>{
    			this.context.router.push(`/`)
@@ -32,7 +33,7 @@ class Login extends Component {
    render() {
 	   	return (
 	   		<section className="login">
-	   			<LoginForm 
+	   			<LoginFormContainer 
 	   				onSubmit={this.onSubmit}
 	   			/>
 	   		</section>
@@ -44,7 +45,6 @@ class Login extends Component {
 Login.contextTypes = {
 	router : PropTypes.object.isRequired
 }
-
 
 const mapStateToProps = (state, props) => ({
    	isLoggingIn : state.user.isLoggingIn
