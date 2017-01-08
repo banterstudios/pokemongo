@@ -21,4 +21,22 @@
 
 		@include transform(translateX(-50%));
 	}
+
+	.register-text-container{
+		position: relative;
+		width: 100%;
+		margin-bottom: 10px;
+		text-align: right;
+		padding:0 10px;
+
+		.register-text{
+			position: relative;
+			display: inline-block;
+			margin:0;
+			cursor: pointer;
+			color: $darkGray;
+			font-size: $sizeXSmall;
+			font-weight: 100;
+		}
+	}
 }

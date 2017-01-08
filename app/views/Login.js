@@ -28,11 +28,12 @@ class Login extends Component {
 
       /* Bind this */
       this.onSubmit = this.onSubmit.bind(this)
+      this.onRegister = this.onRegister.bind(this)
 
    }
 
    onSubmit(email, password){
-   		window.dev&&console.log(email,password)
+   		
    		this.props.performLogin(email, password)
    		.then(()=>{
    			this.context.router.push(`/`)
@@ -40,6 +41,10 @@ class Login extends Component {
    		.catch(()=>{
    			window.dev&&console.log('failed to log in!')
    		})
+   }
+
+   onRegister(){
+      window.dev&&console.log('REGISTER')
    }
 
    render() {
@@ -78,6 +83,10 @@ class Login extends Component {
                      classNames="login-image"
                   />
 
+                  <div className="register-text-container">
+                     <h4 className="register-text" onClick={this.onRegister}>Register</h4>
+                  </div>
+                  
                   <LoginFormContainer 
                      onSubmit={this.onSubmit}
                   />
