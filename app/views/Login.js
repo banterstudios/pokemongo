@@ -7,7 +7,7 @@ import LoginForm from '../components/LoginForm';
 import { connect } from 'react-redux';
 
 /* Actions */
-//import { toggleSelectedPokemon } from '../actions';
+import { performLogin } from '../actions';
 
 class Login extends Component {
 
@@ -19,8 +19,14 @@ class Login extends Component {
 
    }
 
-   onSubmit(){
-   		this.context.router.push(`/`)
+   onSubmit(email, password){
+   		this.props.performLogin(email, password)
+   		.then(()=>{
+   			this.context.router.push(`/`)
+   		})
+   		.catch(()=>{
+   			window.dev&&console.log('failed to log in!')
+   		})
    }
 
    render() {
@@ -41,7 +47,8 @@ Login.contextTypes = {
 
 
 const mapStateToProps = (state, props) => ({
-   	isLogged : state.pokemon.pokemon
+   	isLoggingIn : state.user.isLoggingIn
 })
 
-export default Login;
+
+export default connect(mapStateToProps, { performLogin })(Login)

@@ -74,7 +74,7 @@ const LoginForm = props => {
 						</div>
 
 						<div className="form-field-wrapper">
-							<button className="form-field-submit-button" onClick={props.onSubmit}>
+							<button className="form-field-submit-button" onClick={ ()=>{ props.onSubmit('sd','sd') } }>
 								log in
 							</button>
 						</div>
