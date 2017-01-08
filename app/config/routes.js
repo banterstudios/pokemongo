@@ -14,7 +14,7 @@ import AboutView from '../views/About';
 import store from '../store/store';
 
 /* Authentication */
-import Authenticate from '../Auth/Authenticate';
+import Authenticate from '../auth/Authenticate';
 
 let routes = (
 
