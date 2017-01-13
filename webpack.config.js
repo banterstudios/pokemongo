@@ -1,5 +1,6 @@
 // In webpack.config.js
 const webpack = require('webpack')
+const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + '/app/index.html',
@@ -21,13 +22,16 @@ module.exports = {
       {test: /\.(jpe?g|png|gif|svg|ttf)$/i, loader: "file-loader" },
     ]
   },
+  sassLoader: {
+    includePaths: [path.resolve(__dirname, "./node_modules/compass-mixins/lib")]
+  },
   plugins: [
     HTMLWebpackPluginConfig,
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
-    })
+    // new webpack.DefinePlugin({
+    //   'process.env': {
+    //     'NODE_ENV': JSON.stringify('production')
+    //   }
+    // })
   ],
   devtool : 'cheap-module-source-map',
 };

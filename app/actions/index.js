@@ -5,6 +5,7 @@ import * as ActionTypes from './actiontypes';
 import * as Api from '../services';
 
 /* Pokemon */
+
 export const addPokemon = pokemon => ({
 	type : ActionTypes.ADD_POKEMON,
 	pokemon
@@ -29,6 +30,13 @@ export const userLoggedIn = () => ({
 	type : ActionTypes.USER_LOGGED_IN
 })
 
+/*
+*	@name performLogin
+*	@param {string} email - users email
+*	@param {string} password - users password
+*	@return {function} Api.login - api for posting username and password
+*	@description invokes an ajax call with username and password
+*/
 export const performLogin = (email, password) => {
 	return dispatch => {
 		
