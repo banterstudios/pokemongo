@@ -1,19 +1,17 @@
-import React, { PropTypes } from 'react';
+import React from 'react'
 
 const PokemonInfoToast = props => {
-	
-	return (
-		<div 
-			className="pokemon-info-toast"
-			style={{backgroundColor : props.backgroundColor}}>
-			{props.name}
-		</div>
-	)
-
+  return (
+    <div
+      className='pokemon-info-toast'
+      style={{backgroundColor: props.backgroundColor}} >
+      {props.name}
+    </div>
+  )
 }
 
 PokemonInfoToast.defaultProps = {
-	backgroundColor : '#cccccc'
+  backgroundColor : '#cccccc'
 }
 
 export default PokemonInfoToast

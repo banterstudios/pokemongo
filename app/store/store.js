@@ -1,8 +1,8 @@
 /* Configure store */
 import configureStore from './configureStore'
 
-let newState = {};
+let newState = {}
 
-const store = configureStore(newState);
+const store = configureStore(newState)
 
 export default store

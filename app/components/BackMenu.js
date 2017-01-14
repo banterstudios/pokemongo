@@ -1,9 +1,9 @@
-import React, { PropTypes } from 'React';
+import React, { PropTypes } from 'React'
 
-const BackMenu = (props) => <i className="back-button" onClick={props.onToggle} />
+const BackMenu = props => <i className='back-button' onClick={props.onToggle} />
 
 BackMenu.propTypes = {
-	onToggle   : PropTypes.func.isRequired,
+  onToggle : PropTypes.func.isRequired
 }
 
 export default BackMenu

@@ -1,0 +1,20 @@
+.main-menu-item{
+	position: relative;
+	width: 100%;
+	margin-bottom: 10px;
+	list-style: none;
+	cursor: pointer;
+
+	.text{
+		position: relative;
+		color:$white;
+		font-size:$sizeXSmall;
+		margin: 0;
+		text-align: center;
+	}
+
+	a{
+		text-decoration: none;
+	}
+	
+}

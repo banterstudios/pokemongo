@@ -4,9 +4,11 @@
   "description": "pokemon go web",
   "main": "index.js",
   "scripts": {
-    "production": "webpack -p",
+    "production": "webpack -p --config webpack.prod.config.js",
     "start": "webpack-dev-server",
-    "dev": "webpack -d"
+    "dev": "webpack -d",
+    "standardise": "standard --fix",
+    "serve": "node index.js"
   },
   "keywords": [
     "pokemon",
@@ -30,11 +32,14 @@
     "node-sass": "^4.1.0",
     "react-addons-test-utils": "^15.4.2",
     "sass-loader": "^4.1.0",
+    "standard": "^8.6.0",
+    "standard-loader": "^5.0.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "compass-mixins": "^0.12.10",
     "react": "^15.4.1",
     "react-addons-css-transition-group": "^15.4.1",

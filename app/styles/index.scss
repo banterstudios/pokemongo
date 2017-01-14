@@ -1,72 +1,105 @@
+/* 
+***************************
+Author: Nick de Rozarieux
+***************************
+*/
+
+/* 
+*****************
+Utilities
+*****************
+*/
+
 /* Compass */
 @import 'compass';
 
 /*  Global variables  */
-@import 'variables.scss';
+@import 'utilities/variables.scss';
 
 /* Helper mixins  */
-@import 'helper.scss';
+@import 'utilities/helper.scss';
 
 /* Colors */
-@import 'colors.scss';
+@import 'utilities/colors.scss';
 
 /* Font types */
-@import 'fonts.scss';
+@import 'utilities/fonts.scss';
 
 /* Font sizes */
-@import 'fontsizes.scss';
+@import 'utilities/fontsizes.scss';
 
 /* Transitions */
-@import 'transitions.scss';
+@import 'utilities/transitions.scss';
+
+/* 
+*****************
+Base
+*****************
+*/
 
 /* Base styles */
 @import 'base.scss';
 
+/* 
+*****************
+Components
+*****************	
+*/
+
+/*  Menu item */
+@import 'components/menuitem.scss';
+
+/* Menu List */
+@import 'components/menulist.scss';
+
 /* Spaced card */
-@import 'spacedcard.scss';
+@import 'components/spacedcard.scss';
 
 /* Form */
-@import 'form.scss';
+@import 'components/form.scss';
 
-/* Background image */
-@import 'backgroundimage.scss';
-
-/* Buttons */
-@import 'buttons.scss';
-
-/* List */
-@import 'list.scss';
+/* Back button */
+@import 'components/backbutton.scss';
 
 /* Login Form */
-@import 'loginform.scss';
+@import 'components/loginform.scss';
 
 /* pokemon info toast */
-@import 'pokemoninfotoast.scss';
+@import 'components/pokemoninfotoast.scss';
 
 /* Pokedex */
-@import 'pokedex.scss';
+@import 'components/pokedex.scss';
 
 /* Pokemon list item */
-@import 'pokemonlistitem.scss';
+@import 'components/pokemonlist.scss';
+
+/* Pokemon list item */
+@import 'components/pokemonlistitem.scss';
 
 /* Pokemon info */
-@import 'pokemoninfo.scss';
+@import 'components/pokemoninfo.scss';
 
 /* Nav bar */
-@import 'navbar.scss';
-
-/* Home View */
-@import 'home.scss';
-
-/* Login View */
-@import 'login.scss';
-
-/* Pokemon details view */
-@import 'pokemondetails.scss';
-
-/* About view */
-@import 'about.scss';
+@import 'components/navbar.scss';
 
 /* Main Menu */
-@import 'mainmenu.scss';
+@import 'components/mainmenu.scss';
+
+/*
+*****************
+Views
+*****************
+*/
+
+/* Home View */
+@import 'views/home.scss';
+
+/* Login View */
+@import 'views/login.scss';
+
+/* Pokemon details view */
+@import 'views/pokemondetails.scss';
+
+/* About view */
+@import 'views/about.scss';
 

@@ -1,115 +1,103 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react'
 
 /* Login form */
-import LoginFormContainer from '../containers/LoginForm';
+import LoginFormContainer from '../containers/LoginForm'
 
 /* Redux connect */
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 
 /* Actions */
-import { performLogin } from '../actions';
+import { performLogin } from '../actions'
 
 /* Transitions */
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
-/* Components */
-import BackgroundImageComponent from '../components/BackGroundImageComponent';
+/* Import spaced card component */
+import SpacedCard from '../components/SpacedCard'
 
 /* Login background */
-import LoginBackground from '../assets/loginbackground.jpg';
+import LoginBackground from '../assets/loginbackground.jpg'
 
 /* Login pokemon image */
-import LoginLogoImage from '../assets/logo.png';
+import LoginLogoImage from '../assets/logo.png'
 
 class Login extends Component {
 
-   constructor(props) {
-      super(props)
+  constructor (props) {
+    super(props)
 
       /* Bind this */
-      this.onSubmit = this.onSubmit.bind(this)
-      this.onRegister = this.onRegister.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
+    this.onRegister = this.onRegister.bind(this)
+  }
 
-   }
-
-   onSubmit(email, password){
-   		
+  onSubmit (email, password) {
    		this.props.performLogin(email, password)
-   		.then(()=>{
+   		.then(() => {
    			this.context.router.push(`/`)
    		})
-   		.catch(()=>{
-   			window.dev&&console.log('failed to log in!')
+   		.catch(() => {
+   			window.dev && console.log('failed to log in!')
    		})
-   }
+  }
 
-   onRegister(){
-      window.dev&&console.log('REGISTER')
-   }
+  onRegister () {
+    window.dev && console.log('REGISTER')
+  }
 
-   render() {
+  render () {
    	return (
-   		<section className="login">
-   			
-         <ReactCSSTransitionGroup
-            transitionName="fade-in"
-            transitionAppear={true}
-            transitionAppearTimeout={300}
-            transitionEnter={false}
-            transitionLeave={false} >
-            
-            <BackgroundImageComponent 
-               imageSrc={LoginBackground}
-               classNames="login-background"
-            />
+      <section className='login'>
 
-         </ReactCSSTransitionGroup>
+        <ReactCSSTransitionGroup
+          transitionName='fade-in'
+          transitionAppear
+          transitionAppearTimeout={300}
+          transitionEnter={false}
+          transitionLeave={false} >
 
-         <ReactCSSTransitionGroup
-            transitionName="shift-fade-up"
-            transitionAppear={true}
-            transitionAppearTimeout={300}
-            transitionEnter={false}
-            transitionLeave={false} >
-            
-            <div className="spaced-card-wrapper" key="spaced-card-wrapper-login-form" >
-               
-               <div className="fill"></div>
-                
-               <div className="spaced-card-container">
-               
-                  <BackgroundImageComponent
-                     imageSrc={LoginLogoImage}
-                     classNames="login-image"
-                  />
+          <div 
+            className="login-background" 
+            style={{backgroundImage:`url('${LoginBackground}')`}} />
 
-                  <div className="register-text-container">
-                     <h4 className="register-text" onClick={this.onRegister}>Register</h4>
-                  </div>
-                  
-                  <LoginFormContainer 
-                     onSubmit={this.onSubmit}
-                  />
-            
-               </div>
+        </ReactCSSTransitionGroup>
 
+        <ReactCSSTransitionGroup
+          transitionName='shift-fade-up'
+          transitionAppear
+          transitionAppearTimeout={300}
+          transitionEnter={false}
+          transitionLeave={false} >
+
+          <SpacedCard>
+
+            <div 
+            className="login-image" 
+            style={{backgroundImage:`url('${LoginLogoImage}')`}} />
+
+            <div className='register-text-container'>
+              <h4 className='register-text' onClick={this.onRegister}>Register</h4>
             </div>
 
-           </ReactCSSTransitionGroup>
+            <LoginFormContainer
+              onSubmit={this.onSubmit}
+            />
 
-   		</section>
+          </SpacedCard>
+
+        </ReactCSSTransitionGroup>
+
+      </section>
    	)
-   }
+  }
 }
 
-
 Login.contextTypes = {
-	router : PropTypes.object.isRequired
+  router: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state, props) => ({
-   	isLoggingIn : state.user.isLoggingIn
+  isLoggingIn: state.user.isLoggingIn
 })
-
 
 export default connect(mapStateToProps, { performLogin })(Login)

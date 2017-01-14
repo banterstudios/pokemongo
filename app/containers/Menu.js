@@ -1,56 +1,53 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, Component } from 'react'
 
 /* Transitions */
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 /* Components */
-import ListComponent from '../components/List';
-import MenuItemComponent from '../components/MenuItem';
+import MenuListComponent from '../components/MenuList'
 
-class Menu extends Component{
-	
-	constructor(props){
-		super(props)
+import MenuItemComponent from '../components/MenuItem'
 
-		/* Bind this */
-		this.handleClick = this.handleClick.bind(this)
-	}
+class Menu extends Component {
 
-	handleClick(name = ""){
+  constructor (props) {
+    super(props)
 
-		let _redirect = '/'
+    this.handleClick = this.handleClick.bind(this)
+  }
 
-		switch(name){
+  handleClick (name = '') {
+    let _redirect = '/'
 
-			case 'Pokedex':
-				_redirect = '/'
-			break
+    switch (name) {
 
-			case 'About':
-				_redirect = 'about'
-			break
+      case 'Pokedex':
+        _redirect = '/'
+        break
 
-		}
+      case 'About':
+        _redirect = 'about'
+        break
 
-		this.context.router.push(_redirect);
+    }
 
-	}
+    this.context.router.push(_redirect)
+  }
 
-	render(){
-		return (
-			<div className="main-menu">
-				<ListComponent>
-					<MenuItemComponent name="Pokedex" onClick={ ()=>{ this.handleClick('Pokedex') } } />
-					<MenuItemComponent name="About" onClick={ ()=>{ this.handleClick('About') } } />
-				</ListComponent>
-			</div>
-		)
-	}
+  render () {
+    return (
+      <div className='main-menu'>
+        <MenuListComponent>
+          <MenuItemComponent name='Pokedex' onClick={() => { this.handleClick('Pokedex') }} />
+          <MenuItemComponent name='About' onClick={() => { this.handleClick('About') }} />
+        </MenuListComponent>
+      </div>
+    )
+  }
 }
 
 Menu.contextTypes = {
-   router : PropTypes.object.isRequired
+  router : PropTypes.object.isRequired
 }
-
 
 export default Menu

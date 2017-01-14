@@ -1,93 +1,86 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react'
 
 /* Nav bar */
-import NavbarContainer from '../containers/Navbar';
+import NavbarContainer from '../containers/Navbar'
 
 /* Main Menu */
-import MainMenuContainer from '../containers/Menu';
+import MainMenuContainer from '../containers/Menu'
 
 /* Pokedex */
-import PokedexContainer from '../containers/Pokedex';
+import PokedexContainer from '../containers/Pokedex'
 
 /* Transitions */
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class Home extends Component {
 
-   constructor(props) {
-      super(props)
+  constructor (props) {
+    super(props)
 
-      this.state = {
-         menuOpen : false
-      }
+    this.state = {
+      menuOpen: false
+    }
 
-      this.onBurgerClick = this.onBurgerClick.bind(this);
-      this.renderMenuContainer = this.renderMenuContainer.bind(this);
-   }
+    this.onBurgerClick = this.onBurgerClick.bind(this)
+    this.renderMenuContainer = this.renderMenuContainer.bind(this)
+  }
 
-   componentDidMount() {
+  componentDidMount () {
 
-   }
+  }
 
-   onBurgerClick(isMenuOpen){
-      this.setState({
-         menuOpen : isMenuOpen
-      })
-   }
+  onBurgerClick (isMenuOpen) {
+    this.setState({
+      menuOpen: isMenuOpen
+    })
+  }
 
-   renderMenuContainer(){
-      if(this.state.menuOpen){
-         return (
-            <MainMenuContainer />
-         )
-      }else{
-         return null;
-      }
+  renderMenuContainer () {
+    if (this.state.menuOpen) {
+      return (
+        <MainMenuContainer />
+      )
+    } else {
+      return null
+    }
+  }
 
-   }
+  render () {
+    return (
 
-   render() {
+      <section className='home'>
 
-		return (
-
-			<section className="home">
-
-            {/* Nav bar */}
-            <NavbarContainer 
-               name={this.props.navName}
-               onBurgerClick={this.onBurgerClick}
-               onBurgerMenuToggle={this.onBurgerClick}
+        <NavbarContainer
+          name={this.props.navName}
+          onBurgerClick={this.onBurgerClick}
+          onBurgerMenuToggle={this.onBurgerClick}
             />
-            
-            {/* TODO: add in the pokemon list */}
-            <PokedexContainer />
 
-            {/* Main Menu */}
-            <ReactCSSTransitionGroup
-               transitionName="shift-fade-left"
-               transitionEnter={true}
-               transitionLeave={true} 
-               transitionEnterTimeout={300}
-               transitionLeaveTimeout={300} >
-               {this.renderMenuContainer()} 
-            </ReactCSSTransitionGroup>
-            
+        <PokedexContainer />
 
-			</section>
+        <ReactCSSTransitionGroup
+          transitionName='shift-fade-left'
+          transitionEnter
+          transitionLeave
+          transitionEnterTimeout={300}
+          transitionLeaveTimeout={300} >
+          {this.renderMenuContainer()}
+        </ReactCSSTransitionGroup>
 
-		)
+      </section>
 
-   }
+    )
+  }
 
 }
 
 Home.defaultProps = {
-   navName : 'Pokedex'
+  navName: 'Pokedex'
 }
 
 Home.propTypes = {
    /* None */
-   navName : PropTypes.string
+  navName: PropTypes.string
 }
 
-export default Home;
+export default Home

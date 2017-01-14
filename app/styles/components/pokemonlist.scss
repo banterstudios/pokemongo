@@ -1,0 +1,22 @@
+.pokemon-list{
+	position: relative;
+	height: 100%;
+	overflow:auto;
+	-webkit-overflow-scrolling : touch;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	width: 60%;
+	margin-right: -100px;
+	padding-right: 100px;
+	@include box-sizing(content-box);
+
+}
+
+@media screen and (max-width:$mobileWidth){
+	.pokemon-list{
+		float: right;
+		width: 50%;
+	}
+}

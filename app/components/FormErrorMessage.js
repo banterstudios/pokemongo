@@ -1,9 +1,5 @@
-import React from 'react';
-	
-const FormErrorMessage = props => {
-	return (
-		<div></div>
-	)
-}
+import React from 'react'
 
+const FormErrorMessage = props => <div />
+ 
 export default FormErrorMessage

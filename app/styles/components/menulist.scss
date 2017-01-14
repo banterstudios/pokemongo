@@ -1,0 +1,11 @@
+.main-menu-list{
+	position: relative;
+	width: 100%;
+	height: auto;
+	@include clear-fix();
+	list-style: none;
+	padding:0;
+	margin:0;
+	overflow:auto;
+    -webkit-overflow-scrolling : touch;
+}

@@ -63,7 +63,7 @@ nav .right{
 	@include justify-content(flex-end);
 }
 
-nav .background-image{
+nav .navbar-trainer-image{
 	position            : relative;
     width               : $navTrainerImgSize;
     height              : $navTrainerImgSize;

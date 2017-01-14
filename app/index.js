@@ -1,21 +1,21 @@
 /* React */
-import React from 'react';
-import { render } from 'react-dom';
+import React from 'react'
+import { render } from 'react-dom'
 
 /* Redux */
-import { Provider } from 'react-redux';
+import { Provider } from 'react-redux'
 
 /* Store */
-import store from './store/store';
+import store from './store/store'
 
 /* React additional */
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import injectTapEventPlugin from 'react-tap-event-plugin'
 
 /* Routes */
-import routes from './config/routes';
+import routes from './config/routes'
 
 /* Styles */
-import './styles/index.scss';
+import './styles/index.scss'
 
 /* dev */
 window.dev = true
@@ -25,10 +25,10 @@ injectTapEventPlugin()
 
 /* Render */
 render(
-   
-   <Provider store={store}>
-     {routes}
-   </Provider>,
+
+  <Provider store={store}>
+    {routes}
+  </Provider>,
 
    document.getElementById('app')
 )
