@@ -1,5 +1,8 @@
 import React, { PropTypes, Component } from 'react'
 
+/* Get Image */
+import getImage from '../utils/getImage'
+
 /* 
 *	@name - BackgroundImageLoader
 *	@description - Will take a image src and wait for it to loader and show a placeholder
@@ -17,23 +20,58 @@ class BackgroundImageLoader extends Component {
 			loaded : false,
 			error  : false
 		}
+
+		this.handleImgLoad = this.handleImgLoad.bind(this);
+    	this.handleImgError = this.handleImgError.bind(this);
+	}
+
+	handleImgLoad(){
+		this.setState({
+      		loaded : true,
+    	});
+	}
+
+	handleImgError(){
+		this.setState({
+      		loaded : false,
+      		error  : true
+    	});
 	}
 
 	componentDidMount(){
 
+		getImage(this.props.src)
+		.then( this.handleImgLoad )
+		.catch( this.handleImgError )
+
 	}
 
-	componentWillUnmount(){
-
+	shouldComponentUpdate(nextState, nextProps) {
+		return !this.state.loaded;
 	}
 
 	render(){
-		return(
-			<div style={{backgroundImage: `url(${source})`}} {...props}>
-				{children}
-			</div>
-		)
+		const { src, placeholder, children, ...props } = this.props;
+	    const source = !this.state.loaded || this.state.error ? placeholder : src;
+
+	    return (
+	      <div style={{backgroundImage: `url(${source})`}} {...props}>
+	        {children}
+	      </div>
+	    )
 	}
+}
+
+BackgroundImageLoader.defaultProps = {
+	placeholder : ''
+}
+
+BackgroundImageLoader.propTypes = {
+	src         : PropTypes.string.isRequired,
+	placeholder : PropTypes.string,
+	className   : PropTypes.string,
+	style       : PropTypes.object,
+	children    : PropTypes.object
 }
 
 export default BackgroundImageLoader

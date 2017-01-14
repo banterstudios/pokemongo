@@ -12,6 +12,9 @@ import BurgerMenuComponent from '../components/BurgerMenu'
 /* Back Menu Component */
 import BackMenuComponent from '../components/BackMenu'
 
+/* Background Image */
+import BackgroundImage from '../containers/BackgroundImageLoader'
+
 /* Utilities */
 import classNames from 'classnames'
 
@@ -46,7 +49,9 @@ const Navbar = props => {
         </div>
         <div className='right'>
           <div className="background" />
-          <div className="navbar-trainer-image" style={{backgroundImage:`url('${props.imgSrc}')`}}/>
+          <BackgroundImage 
+            src={props.imgSrc} 
+            className="navbar-trainer-image" />
         </div>
       </nav>
 

@@ -12,6 +12,9 @@ import SpacedCard from '../components/SpacedCard'
 /* Redux connect */
 import { connect } from 'react-redux'
 
+/* Background Image */
+import BackgroundImage from '../containers/BackgroundImageLoader'
+
 /* Transitions */
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
@@ -29,7 +32,7 @@ class PokemonDetails extends Component {
 
   render () {
     let _pokemonArr = this.props.pokemon.filter(poke => {
-      poke.id === parseInt(this.props.routeParams.id) 
+      return poke.id === parseInt(this.props.routeParams.id) 
     })
 
     if (!_pokemonArr.length) {
@@ -70,9 +73,10 @@ class PokemonDetails extends Component {
         transitionEnter={false}
         transitionLeave={false} >
 
-        <div 
-          className="main-bg" 
-          style={{backgroundImage:`url('${_backdropSrc}')`}} />
+        <BackgroundImage 
+          src={_backdropSrc} 
+          className="main-bg" />
+
 
       </ReactCSSTransitionGroup>
 
@@ -92,9 +96,9 @@ class PokemonDetails extends Component {
 
         <SpacedCard>
 
-          <div 
-          className="pokemon-image" 
-          style={{backgroundImage:`url('${_pokemon.image}')`}} />
+          <BackgroundImage 
+            src={_pokemon.image} 
+            className="pokemon-image" />
 
           <div className='pokemon-basic-info'>
 
