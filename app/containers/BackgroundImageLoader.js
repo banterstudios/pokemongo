@@ -6,9 +6,9 @@ import getImage from '../utils/getImage'
 /* 
 *	@name - BackgroundImageLoader
 *	@description - Will take a image src and wait for it to loader and show a placeholder
-*   @usage - <BackgroundImage img={source} placeholder={localImage} {...other attributes}>
-        {...child components}
-       </BackgroundImage>
+*   @usage - <BackgroundImage src={source} placeholder={localImage} {...other attributes}>
+*       {...child components}
+*       </BackgroundImage>
 *
 */
 

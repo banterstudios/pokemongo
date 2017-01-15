@@ -20,11 +20,6 @@ const pokemonReducer = (state = initialState, action) => {
 
     case TOGGLE_SELECTED_POKEMON:
 
-			/*
-				Loop through all pokemon
-				Toggle the pokemon which matches the action id
-				otherwise select false.
-			*/
       let _pokemonSelected = state.pokemon.map(poke => {
         if (poke.id === action.id) {
           poke.selected = !poke.selected

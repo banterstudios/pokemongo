@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react'
-import { Link } from 'react-router'
 
 /* Redux connect */
 import { connect } from 'react-redux'
@@ -10,6 +9,9 @@ import { toggleSelectedPokemon } from '../actions'
 /* Import pokemon toast icon */
 import PokemonInfoToastComponent from '../components/PokemonInfoToast'
 
+/* Import pokemon info */
+import PokemonInfo from '../components/PokemonInfo'
+
 /* Transitions */
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
@@ -17,6 +19,9 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import PokemonListComponent from '../components/PokemonList'
 
 import PokemonListItemComponent from '../components/PokemonListItem'
+
+/* Utilities */
+import classNames from 'classnames'
 
 /* Create markup for each pokemon */
 const createPokemonListItem = (pokemon, clickFunc) => {
@@ -36,21 +41,6 @@ const createPokemonListItem = (pokemon, clickFunc) => {
   )
 }
 
-const addShiftTransition = children => {
-  return (
-    <ReactCSSTransitionGroup
-      transitionName='shift-fade-up'
-      transitionAppear
-      transitionEnter
-      transitionLeave
-      transitionAppearTimeout={300}
-      transitionEnterTimeout={300}
-      transitionLeaveTimeout={300}
-      component='div'>
-      {children}
-    </ReactCSSTransitionGroup>
-  )
-}
 
 const addSideShiftTransition = children => {
   return (
@@ -68,36 +58,26 @@ const addSideShiftTransition = children => {
   )
 }
 
-const createPokemonInfo = pokemon => {
+const createPokemonInfo = (pokemon, onClick) => {
   for (let i = 0, len = pokemon.length; i < len; i++) {
     let poke = pokemon[i]
 
     if (!poke.selected) continue
 
-    let _classNames = poke.selected ? 'pokemon-info' : 'pokemon-info hidden',
-      _number = `#${poke.num}`,
-      _link = `/pokemondetails/${poke.id}`
-
     return (
-
-      <div className={_classNames} key={poke.id}>
-        <Link to={_link} >
-
-          {addShiftTransition(
-            <div className="poke-info-bg-image" style={{backgroundImage:`url('${poke.image}')`}} />
-          )}
-
-          {addShiftTransition(<PokemonInfoToastComponent
-            name={poke.name}
-            backgroundColor={poke.color} />
-					)}
-
-          {addShiftTransition(<PokemonInfoToastComponent
-            name={_number} />
-					)}
-
-        </Link>
-      </div>
+      <ReactCSSTransitionGroup
+        transitionName='shift-fade-up'
+        transitionAppear
+        transitionEnter
+        transitionLeave={false}
+        transitionAppearTimeout={300}
+        transitionEnterTimeout={300}
+        component='div'
+        className='pokemoninfo-trans-container'>
+        
+          <PokemonInfo {...poke} key={i} onClick={onClick} />
+        
+      </ReactCSSTransitionGroup>
     )
   }
 }
@@ -107,25 +87,34 @@ class Pokedex extends Component {
   constructor (props) {
     super(props)
 
-    this.clickedPokemon = this.clickedPokemon.bind(this)
+    this.clickedPokemonListItem = this.clickedPokemonListItem.bind(this)
+    this.clickedPokemon         = this.clickedPokemon.bind(this)
   }
 
-  clickedPokemon (e, id) {
+  clickedPokemonListItem (e, id) {
    		this.props.toggleSelectedPokemon(id)
+  }
+
+  clickedPokemon(id){
+    this.context.router.push(`/pokemondetails/${id}`)
   }
 
   render () {
     return (
       <div className='pokedex'>
         <div className='pokemon-info-container'>
-          {createPokemonInfo(this.props.pokemon)}
+          {createPokemonInfo(this.props.pokemon, this.clickedPokemon)}
         </div>
         <PokemonListComponent>
-          {addSideShiftTransition(createPokemonListItem(this.props.pokemon, this.clickedPokemon))}
+          {addSideShiftTransition(createPokemonListItem(this.props.pokemon, this.clickedPokemonListItem))}
         </PokemonListComponent>
       </div>
     )
   }
+}
+
+Pokedex.contextTypes = {
+  router: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state, props) => ({

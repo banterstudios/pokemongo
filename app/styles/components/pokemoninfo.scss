@@ -5,6 +5,7 @@ $imageSize : 100%;
 	width: 100%;
 	height: auto;
 	@include clear-fix();
+	cursor: pointer;
 
 	.poke-info-bg-image{
 		position: relative;

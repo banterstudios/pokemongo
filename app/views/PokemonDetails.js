@@ -9,6 +9,9 @@ import PokemonInfoToastComponent from '../components/PokemonInfoToast'
 /* Import spaced card component */
 import SpacedCard from '../components/SpacedCard'
 
+/* Import pokemon info */
+import PokemonInfo from '../components/PokemonInfo'
+
 /* Redux connect */
 import { connect } from 'react-redux'
 
@@ -96,20 +99,7 @@ class PokemonDetails extends Component {
 
         <SpacedCard>
 
-          <BackgroundImage 
-            src={_pokemon.image} 
-            className="pokemon-image" />
-
-          <div className='pokemon-basic-info'>
-
-            <PokemonInfoToastComponent
-              name={_number} />
-
-            <PokemonInfoToastComponent
-              name={_pokemon.name}
-              backgroundColor={_pokemon.color} />
-
-          </div>
+          <PokemonInfo { ..._pokemon } />
 
           <p className='pokemon-desc'>
             {_pokemon.description}

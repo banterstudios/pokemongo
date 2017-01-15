@@ -9,6 +9,9 @@ import { connect } from 'react-redux'
 /* Actions */
 import { performLogin } from '../actions'
 
+/* Backround image loader */
+import BackgroundImage from '../containers/BackgroundImageLoader'
+
 /* Transitions */
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
@@ -56,9 +59,10 @@ class Login extends Component {
           transitionEnter={false}
           transitionLeave={false} >
 
-          <div 
-            className="login-background" 
-            style={{backgroundImage:`url('${LoginBackground}')`}} />
+          <BackgroundImage
+            src={LoginBackground}
+            className="login-background"
+          />
 
         </ReactCSSTransitionGroup>
 
@@ -70,10 +74,11 @@ class Login extends Component {
           transitionLeave={false} >
 
           <SpacedCard>
-
-            <div 
-            className="login-image" 
-            style={{backgroundImage:`url('${LoginLogoImage}')`}} />
+  
+            <BackgroundImage
+              src={LoginLogoImage}
+              className="login-image"
+            />
 
             <div className='register-text-container'>
               <h4 className='register-text' onClick={this.onRegister}>Register</h4>

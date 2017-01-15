@@ -19,33 +19,59 @@
 	}
 
 
-	.pokemon-image{
-		background-position : center;
-		background-repeat   : no-repeat;
-		background-size     : contain;
-		position            : absolute;
-		top                 : -75px;
-		left                : 50%;
-		width               : 80%;
-		height              : 150px;
-
-		@include transform(translateX(-50%));
-	}
-
-	.pokemon-basic-info{
-		position   : relative;
-		width      : 100%;
+	.pokemon-info{
 		text-align : center;
-
+		height: auto;
 		@include clear-fix();
+		cursor: initial;
 
-		.pokemon-info-toast{
-			clear   : none;
-			float   : initial;
-			display :  inline-block;
-			margin  : 0 5px;
+		.poke-info-bg-image{
+			margin-bottom: 0;
+			background-position : center;
+			background-repeat   : no-repeat;
+			background-size     : contain;
+			position: relative;
+			width               : 100%;
+			height              : 150px;
+			margin-top:-75px;
+			padding-bottom:0;
 		}
 	}
+
+	.pokemon-info-toast{
+		clear   : none;
+		float   : initial;
+		display :  inline-block;
+		margin  : 0 5px;
+	}
+
+	// .pokemon-image{
+	// 	background-position : center;
+	// 	background-repeat   : no-repeat;
+	// 	background-size     : contain;
+	// 	position            : absolute;
+	// 	top                 : -75px;
+	// 	left                : 50%;
+	// 	width               : 80%;
+	// 	height              : 150px;
+
+	// 	@include transform(translateX(-50%));
+	// }
+
+	// .pokemon-basic-info{
+	// 	position   : relative;
+	// 	width      : 100%;
+	// 	text-align : center;
+
+	// 	@include clear-fix();
+
+	// 	.pokemon-info-toast{
+	// 		clear   : none;
+	// 		float   : initial;
+	// 		display :  inline-block;
+	// 		margin  : 0 5px;
+	// 	}
+	// }
 
 	.pokemon-desc{
 		position   : relative;

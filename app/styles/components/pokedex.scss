@@ -26,6 +26,11 @@
 		padding-right: 100px;
 		@include box-sizing(content-box);
 	}
+
+	.pokemoninfo-trans-container{
+		position: relative;
+		width: 100%;
+	}
 }
 
 @media screen and (max-width:$mobileWidth){
