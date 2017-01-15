@@ -11,7 +11,7 @@ class RegisterForm extends Component {
 		this.onUserNameChange = this.onUserNameChange.bind(this)
 		this.onSubmit         = this.onSubmit.bind(this)
 		this.onPassVisible    = this.onPassVisible.bind(this)
-		
+
 		this.state = {
 			emailValue        : '',
 			passwordValue     : '',
@@ -39,9 +39,9 @@ class RegisterForm extends Component {
 	}
 
 	onPassVisible(){
-		this.setState((prevState) => {
+		this.setState(prevState => ({
 			isPasswordVisible : !prevState.isPasswordVisible
-		})
+		}))
 	}
 
 	onSubmit () {
