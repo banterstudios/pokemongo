@@ -29,8 +29,7 @@ class Login extends Component {
   constructor (props) {
     super(props)
 
-      /* Bind this */
-    this.onSubmit = this.onSubmit.bind(this)
+    this.onSubmit   = this.onSubmit.bind(this)
     this.onRegister = this.onRegister.bind(this)
   }
 
@@ -45,7 +44,7 @@ class Login extends Component {
   }
 
   onRegister () {
-    window.dev && console.log('REGISTER')
+   this.context.router.push(`/register`)
   }
 
   render () {

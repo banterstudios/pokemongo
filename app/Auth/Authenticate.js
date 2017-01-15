@@ -4,8 +4,8 @@ const Authenticate = (store, nextState, replace) => {
 
   if (!isLoggedin) {
     replace({
-      		pathname: '/login'
-    	})
+      	pathname: '/login'
+    })
   }
 }
 

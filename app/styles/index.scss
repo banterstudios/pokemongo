@@ -64,6 +64,9 @@ Components
 /* Login Form */
 @import 'components/loginform.scss';
 
+/* Register Form */
+@import 'components/registerform.scss';
+
 /* pokemon info toast */
 @import 'components/pokemoninfotoast.scss';
 
@@ -96,6 +99,9 @@ Views
 
 /* Login View */
 @import 'views/login.scss';
+
+/* Register View */
+@import 'views/register.scss';
 
 /* Pokemon details view */
 @import 'views/pokemondetails.scss';

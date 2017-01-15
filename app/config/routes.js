@@ -9,6 +9,8 @@ import HomeView from '../views/Home'
 
 import LoginView from '../views/Login'
 
+import RegisterView from '../views/Register'
+
 import PokemonDetailsView from '../views/PokemonDetails'
 
 import AboutView from '../views/About'
@@ -36,6 +38,7 @@ let routes = (
 				} />
       <Route path='about' component={AboutView} />
       <Route path='login' component={LoginView} />
+      <Route path='register' component={RegisterView} />
     </Route>
   </Router>
 
