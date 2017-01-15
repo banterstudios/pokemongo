@@ -21,6 +21,12 @@ import RegisterLogoImage from '../assets/logo.png'
 /* Nav bar */
 import NavbarContainer from '../containers/Navbar'
 
+/* Redux connect */
+import { connect } from 'react-redux'
+
+/* Actions */
+import { performRegistration } from '../actions'
+
 class Register extends Component {
 	constructor(props){
 		super(props)
@@ -29,8 +35,15 @@ class Register extends Component {
 		this.onBack   = this.onBack.bind(this)
 	}
 
-	onSubmit(){
+	onSubmit(username, email, password){
 		//submit the users details.
+		this.props.performRegistration(username, email, password)
+   		.then(() => {
+   			this.context.router.push(`/login`)
+   		})
+   		.catch(() => {
+   			window.dev && console.log('failed to register in!')
+   		})
 	}
 
 	onBack(){
@@ -91,4 +104,13 @@ Register.contextTypes = {
   router: PropTypes.object.isRequired
 }
 
-export default Register
+const mapStateToProps = (state, props) => {
+	let { isRegistering, error } = state.user
+
+	return {
+	  isRegistering : isRegistering,
+	  error         : error
+	}
+}
+
+export default connect(mapStateToProps, { performRegistration })(Register)

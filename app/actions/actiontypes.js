@@ -1,8 +1,11 @@
 /* Pokemon */
-export const ADD_POKEMON = 'ADD_POKEMON'
+export const ADD_POKEMON             = 'ADD_POKEMON'
 export const TOGGLE_SELECTED_POKEMON = 'TOGGLE_SELECTED_POKEMON'
 
 /* User */
-export const USER_FAILED_LOGIN = 'USER_FAILED_LOGIN'
-export const USER_LOGGED_IN = 'USER_LOGGED_IN'
-export const USER_LOGGING_IN = 'USER_LOGGING_IN'
+export const USER_FAILED_LOGIN    = 'USER_FAILED_LOGIN'
+export const USER_LOGGED_IN       = 'USER_LOGGED_IN'
+export const USER_LOGGING_IN      = 'USER_LOGGING_IN'
+export const USER_REGISTERING     = 'USER_REGISTERING'
+export const USER_REGISTERED      = 'USER_REGISTERED'
+export const USER_FAILED_REGISTER = 'USER_FAILED_REGISTER' 

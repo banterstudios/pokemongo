@@ -30,6 +30,19 @@ export const userLoggedIn = () => ({
   type: ActionTypes.USER_LOGGED_IN
 })
 
+export const userFailedRegister = error => ({
+  type : ActionTypes.USER_FAILED_REGISTER,
+  error
+})
+
+export const userRegistering = () => ({
+  type : ActionTypes.USER_REGISTERING
+})
+
+export const userRegistered = () => ({
+  type : ActionTypes.USER_REGISTERED
+})
+
 /*
 *	@name performLogin
 *	@param {string} email - users email
@@ -42,11 +55,30 @@ export const performLogin = (email, password) => {
     dispatch(userLoggingIn())
 
     return Api.login(email, password)
-		.then((response) => {
-  dispatch(userLoggedIn())
-})
-		.catch(error => {
-  dispatch(userFailedLogin('failed'))
-})
+		.then( response => {
+      dispatch(userLoggedIn())
+    })
+		.catch( error => {
+      dispatch(userFailedLogin('failed'))
+    })
+  }
+}
+
+/*
+  @name performRegistration
+  @param 
+*/
+
+export const performRegistration = (username, email, password) => {
+  return dispatch => {
+    dispatch(userRegistering())
+
+    return Api.register(username, email, password)
+    .then(response => {
+      dispatch(userRegistered())
+    })
+    .catch(error => {
+      dispatch(userFailedRegister('failed'))
+    })
   }
 }
