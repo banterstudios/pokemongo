@@ -1,10 +1,14 @@
 import dom from '../utils/dom'
 
+import React from 'react'
+
 import { assert } from 'chai'
 
 import AboutView from '../../app/views/About'
 
 import TestUtils from 'react-addons-test-utils'
+
+
 
 describe('About view component', () => {
 	
@@ -19,10 +23,9 @@ describe('About view component', () => {
 	      'section'
 	    );
 
-		this.aboutViewDOM = inputComponent.getDOMNode()
 
 	    it('about view should be a section tag', () => {
-			assert(this.aboutViewDOM.getTagName() === 'section')
+			assert(inputComponent === 'section')
 		})
 
 	})

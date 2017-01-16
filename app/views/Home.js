@@ -53,8 +53,7 @@ class Home extends Component {
         <NavbarContainer
           name={this.props.navName}
           onBurgerClick={this.onBurgerClick}
-          onBurgerMenuToggle={this.onBurgerClick}
-            />
+          onBurgerMenuToggle={this.onBurgerClick} />
 
         <PokedexContainer />
 
