@@ -1,33 +1,36 @@
-import dom from '../utils/dom'
+"use strict"
 
 import React from 'react'
 
-import { assert } from 'chai'
+import { expect } from 'chai'
+
+import { shallow, mount, render } from 'enzyme'
 
 import AboutView from '../../app/views/About'
 
-import TestUtils from 'react-addons-test-utils'
 
-
-
-describe('About view component', () => {
+describe('<AboutView />', () => {
 	
-	before('render and locate view component', () =>{
-		
-		let renderedComponent = TestUtils.renderIntoDocument(
-			<AboutView/>
-		);
+	let wrapper
 
-		var inputComponent = TestUtils.findRenderedDOMComponentWithTag(
-	      renderedComponent,
-	      'section'
-	    );
+	beforeEach( () => {
+		wrapper = shallow(<AboutView />)
+	});
 
+	it('<AboutView /> should exist', () => {
+		expect(wrapper).to.exist
+	})
 
-	    it('about view should be a section tag', () => {
-			assert(inputComponent === 'section')
-		})
+	it('it should have a class named about', () => {
+		expect(wrapper.is('.about')).to.equal(true)
+	})
 
+	it('it should be of DOM type section', () => {
+		expect(wrapper.is('section')).to.equal(true)
+	})
+
+	it('it should have two direct children', () => {
+		expect(wrapper.children().length).to.equal(2)
 	})
 
 })

@@ -1,8 +1,8 @@
 //var jsdom = require('jsdom')
-import jsdom from 'jsdom'
+import { jsdom } from 'jsdom'
 
 // setup the simplest document possible
-let doc = jsdom.jsdom('<!doctype html><html><body></body></html>')
+let doc = jsdom('<!doctype html><html><body></body></html>')
 
 // get the window object out of the document
 let win = doc.defaultView

@@ -9,7 +9,7 @@ import getImage from '../utils/getImage'
 *   @usage - <BackgroundImage src={source} placeholder={localImage} {...other attributes}>
 *       {...child components}
 *       </BackgroundImage>
-*
+*	@todo - Have a fade animation for when the image has loaded in.
 */
 
 class BackgroundImageLoader extends Component {
