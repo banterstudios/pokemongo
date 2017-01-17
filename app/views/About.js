@@ -19,7 +19,7 @@ class About extends Component {
   }
 
   render () {
-   		return (
+   	return (
      <section className='about'>
 
        <NavbarContainer
@@ -48,7 +48,7 @@ class About extends Component {
        </ReactCSSTransitionGroup>
 
      </section>
-   		)
+   	)
   }
 
 }
