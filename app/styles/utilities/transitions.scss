@@ -184,8 +184,18 @@
 }
 
 
-
-
-
-
 /* /center scale up */
+
+
+/*  Infinite fade in out */
+@include keyframes(pulsate) {
+    0%   { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.pulsate{
+  @include animation(pulsate, .8s, $timing-function: $easeInOutQuad, $iteration-count: infinite, $direction: alternate);
+}
+
+
+

@@ -1,0 +1,45 @@
+@import "compass/css3/shared";
+
+@mixin keyframes($name) {
+
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+
+    @-ms-keyframes #{$name} {
+        @content;
+    }
+
+    @-o-keyframes #{$name} {
+        @content;
+    }
+
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@mixin animation($name, $duration, $timing-function: false, $delay: false, $iteration-count: false, $direction: false) {
+    @include experimental(animation-name, $name, -moz, -webkit, -o, -ms, not -khtml, official);
+    @include experimental(animation-duration, $duration, -moz, -webkit, -o, -ms, not -khtml, official);
+
+    @if $timing-function {
+        @include experimental(animation-timing-function, $timing-function, -moz, -webkit, -o, -ms, not -khtml, official);
+    }
+
+    @if $delay {
+        @include experimental(animation-delay, $delay, -moz, -webkit, -o, -ms, not -khtml, official);
+    }
+
+    @if $iteration-count {
+        @include experimental(animation-iteration-count, $iteration-count, -moz, -webkit, -o, -ms, not -khtml, official);
+    }
+
+    @if $direction {
+        @include experimental(animation-direction, $direction, -moz, -webkit, -o, -ms, not -khtml, official);
+    }
+}

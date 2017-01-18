@@ -13,6 +13,7 @@
 		position: relative;
 		height: 100%;
 		margin: 10px;
+		width: 100%;
 
 		.trainer-type-img{
 			position: relative;
@@ -37,6 +38,7 @@
 	.trainer-profile{
 		position: relative;
 		height: 100%;
+		width: 100%;
 		margin: 10px;
 
 		.trainer-profile-img{
@@ -50,6 +52,7 @@
 	}
 
 	.trainer-level{
+		width: 100%;
 		position: relative;
 		color:$white;
 		font-size:$sizeXSmall;
@@ -57,5 +60,17 @@
 		margin:10px;
 		border-bottom:1px solid $white;
 		padding-bottom: 5px;
+	}
+
+	.placeholder-img{
+		background-color:$pink;
+		opacity: 0.5;
+	}
+	.placeholder-text{
+		height: 15px;
+		width: 100%;
+		background-color:$pink;
+		opacity: 0.5;
+		border:0;
 	}
 }

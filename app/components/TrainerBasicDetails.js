@@ -3,26 +3,50 @@ import React, { PropTypes } from 'react'
 /* Background image */
 import BackgroundImage from '../containers/BackgroundImageLoader'
 
+/* Transitions */
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
 const TrainerBasicDetails = props => {
 	return (
 		<div className="trainer-basic-details">
 			<div className="trainer-type">
-				<BackgroundImage
-					src={props.trainerType.img}
-					className="trainer-type-img"
-				/>
-				<h3 className="trainer-type-name">
-					{props.trainerType.name}
-				</h3>
+				<ReactCSSTransitionGroup
+		          transitionName='fade-in'
+		          transitionAppear
+		          transitionAppearTimeout={300}
+		          transitionEnter={false}
+		          transitionLeave={false} >
+					<BackgroundImage
+						src={props.trainerType.img}
+						className="trainer-type-img"
+					/>
+					<h3 className="trainer-type-name">
+						{props.trainerType.name}
+					</h3>
+				</ReactCSSTransitionGroup>
 			</div>
 			<div className="trainer-profile">
-				<BackgroundImage
-					src={props.profileImg}
-					className="trainer-profile-img"
-				/>
+				<ReactCSSTransitionGroup
+		          transitionName='fade-in'
+		          transitionAppear
+		          transitionAppearTimeout={300}
+		          transitionEnter={false}
+		          transitionLeave={false} >
+					<BackgroundImage
+						src={props.profileImg}
+						className="trainer-profile-img"
+					/>
+				</ReactCSSTransitionGroup>
 			</div>
 			<div className="trainer-level">
-				Lv {props.level}
+				<ReactCSSTransitionGroup
+		          transitionName='fade-in'
+		          transitionAppear
+		          transitionAppearTimeout={300}
+		          transitionEnter={false}
+		          transitionLeave={false} >
+					<span>Lv {props.level}</span>
+				</ReactCSSTransitionGroup>
 			</div>
 		</div>
 	)

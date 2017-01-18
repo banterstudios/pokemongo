@@ -6,7 +6,7 @@ import NavbarContainer from '../containers/Navbar'
 /* Components */
 import TrainerBasicDetails from '../components/TrainerBasicDetails'
 
-import AjaxSpinner from '../components/AjaxSpinner'
+import TrainerBasicPlaceholderDetails from '../components/TrainerBasicPlaceholderDetails'
 
 /* Redux connect */
 import { connect } from 'react-redux'
@@ -14,18 +14,20 @@ import { connect } from 'react-redux'
 /* Actions */
 import { fetchTrainerInfo } from '../actions'
 
-/* Transitions */
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-
 class Trainer extends Component { 
 	constructor(props){
 		super(props)
 
 		this.renderTrainerBasics = this.renderTrainerBasics.bind(this)
-		this.renderAjaxSpinner   = this.renderAjaxSpinner.bind(this)
 	}
 
 	componentDidMount(){
+		/*
+			If the app has already requested to receive the trainer information
+			then exit early.
+		*/
+		if(this.props.fetched || this.props.fetching)return false;
+
 		this.props.fetchTrainerInfo()
 		.then(() => {
 			window.dev&&console.log('fetched!')
@@ -36,25 +38,14 @@ class Trainer extends Component {
 	}
 
 	renderTrainerBasics(){
-		if(!this.props.fetched)return null
+
+		if(!this.props.fetched){
+			return ( <TrainerBasicPlaceholderDetails /> )
+		}
 
 		return (
-			<ReactCSSTransitionGroup
-            transitionName='shift-fade-up'
-            transitionAppear
-            transitionAppearTimeout={300}
-            transitionEnter={false}
-            transitionLeave={false}>
-				<TrainerBasicDetails 
-					{...this.props.trainer} key="poke-trainer-1"/>
-			</ReactCSSTransitionGroup>
+			<TrainerBasicDetails {...this.props.trainer}/>
 		)
-	}
-
-	renderAjaxSpinner(){
-		if(!this.props.fetching)return null
-
-		return ( <AjaxSpinner /> )
 	}
 
 	render(){
@@ -68,7 +59,7 @@ class Trainer extends Component {
 
 				{this.renderTrainerBasics()}
 
-				{this.renderAjaxSpinner()}
+
 
 			</section>
 		)

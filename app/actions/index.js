@@ -115,7 +115,9 @@ export const fetchTrainerInfo = () => {
 
     return Api.getTrainerInfo()
     .then( response => {
-      dispatch(fetchedTrainerInfo(response))
+      setTimeout(()=>{
+        dispatch(fetchedTrainerInfo(response))
+      },2000)
     })
     .catch( error => {
       dispatch(failedToGetTrainer(error))
