@@ -1,0 +1,17 @@
+.trainer{
+	position    : relative;
+	width       : 100%;
+	height      : 100%; 
+	padding-top : $navBarHeight;
+
+	/* 
+		Add padding to the top of the main menu
+		to counter for the navbar height and add 
+		extra 20px to give the menu some room
+	*/
+	.main-menu{
+		padding-top : $navBarHeight + 20px;
+	}
+
+	@include clear-fix();
+}

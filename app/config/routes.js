@@ -15,6 +15,8 @@ import PokemonDetailsView from '../views/PokemonDetails'
 
 import AboutView from '../views/About'
 
+import TrainerView from '../views/Trainer'
+
 /* Store */
 import store from '../store/store'
 
@@ -28,17 +30,23 @@ let routes = (
       <IndexRoute
         component={HomeView}
         onEnter={
-					(nextState, replace) => { Authenticate(store, nextState, replace) }
-				} />
+        (nextState, replace) => { Authenticate(store, nextState, replace) }} />
+      
       <Route
         path='pokemondetails/:id'
         component={PokemonDetailsView}
         onEnter={
-					(nextState, replace) => { Authenticate(store, nextState, replace) }
-				} />
-      <Route path='about' component={AboutView} />
-      <Route path='login' component={LoginView} />
-      <Route path='register' component={RegisterView} />
+        (nextState, replace) => { Authenticate(store, nextState, replace) }} />
+
+      <Route
+        path='trainer'
+        component={TrainerView}
+        onEnter={
+        (nextState, replace) => { Authenticate(store, nextState, replace) }} />
+
+        <Route path='about' component={AboutView} />
+        <Route path='login' component={LoginView} />
+        <Route path='register' component={RegisterView} />
     </Route>
   </Router>
 

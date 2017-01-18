@@ -29,6 +29,10 @@ class Menu extends Component {
         _redirect = 'about'
         break
 
+      case 'Trainer':
+        _redirect = 'trainer'
+        break
+
     }
 
     this.context.router.push(_redirect)
@@ -38,6 +42,7 @@ class Menu extends Component {
     return (
       <div className='main-menu'>
         <MenuListComponent>
+          <MenuItemComponent name='Trainer' onClick={() => { this.handleClick('Trainer') }} />
           <MenuItemComponent name='Pokedex' onClick={() => { this.handleClick('Pokedex') }} />
           <MenuItemComponent name='About' onClick={() => { this.handleClick('About') }} />
         </MenuListComponent>

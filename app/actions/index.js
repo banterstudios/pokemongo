@@ -47,7 +47,7 @@ export const userRegistered = () => ({
 *	@name performLogin
 *	@param {string} email - users email
 *	@param {string} password - users password
-*	@return {function} Api.login - api for posting username and password
+*	@return {function} Api.login - api for posting username and password return a promise
 *	@description invokes an ajax call with username and password
 */
 export const performLogin = (email, password) => {
@@ -66,7 +66,11 @@ export const performLogin = (email, password) => {
 
 /*
   @name performRegistration
-  @param 
+  @param {string} username - users username
+  @param {string} email - users email
+  @param {string} password - users password
+  @return {function} api.register - api for registering user returning a promise.
+  @description invokes an ajax call with registration details.
 */
 
 export const performRegistration = (username, email, password) => {
@@ -79,6 +83,42 @@ export const performRegistration = (username, email, password) => {
     })
     .catch(error => {
       dispatch(userFailedRegister('failed'))
+    })
+  }
+}
+
+
+/* Trainer */
+
+export const failedToGetTrainer = error => ({
+  type : ActionTypes.FAILED_TO_FETCH_TRAINER_INFO,
+  error
+})
+
+export const fetchingTrainerInfo = () => ({
+  type : ActionTypes.FETCHING_TRAINER_INFO
+})
+
+export const fetchedTrainerInfo = trainer => ({
+  type : ActionTypes.FETCHED_TRAINER_INFO,
+  trainer
+})
+
+/*
+  @name fetchedTrainerInfo
+  @description - invokes an ajax to get trainer information for a given user.
+  @return {function} Api.getTrainerInfo - returns a promise with the response.
+*/
+export const fetchTrainerInfo = () => {
+  return dispatch => {
+    dispatch(fetchingTrainerInfo())
+
+    return Api.getTrainerInfo()
+    .then( response => {
+      dispatch(fetchedTrainerInfo(response))
+    })
+    .catch( error => {
+      dispatch(failedToGetTrainer(error))
     })
   }
 }

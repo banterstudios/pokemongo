@@ -11,3 +11,13 @@ export const register = (username, email, password) => {
     return resolve()
   })
 }
+
+/* import fake data */
+import { trainerInfo } from '../data/trainer'
+
+/* Trainer */
+export const getTrainerInfo = () => {
+	return new Promise((resolve, reject) => {
+		return resolve(trainerInfo)
+	}) 
+}

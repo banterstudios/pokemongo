@@ -46,6 +46,9 @@ Components
 *****************	
 */
 
+/* Ajax spinner */
+@import 'components/ajaxspinner.scss';
+
 /*  Menu item */
 @import 'components/menuitem.scss';
 
@@ -88,6 +91,9 @@ Components
 /* Main Menu */
 @import 'components/mainmenu.scss';
 
+/* Trainer basic details */
+@import 'components/trainerbasicdetails.scss';
+
 /*
 *****************
 Views
@@ -108,4 +114,7 @@ Views
 
 /* About view */
 @import 'views/about.scss';
+
+/* Trainer */
+@import 'views/trainer.scss';
 

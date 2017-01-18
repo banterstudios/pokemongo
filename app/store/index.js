@@ -1,13 +1,15 @@
 /* Add in reducers */
-import pokemonReducer from '../reducers/pokemon'
-import userReducer from '../reducers/user'
+import pokemon from '../reducers/pokemon'
+import user from '../reducers/user'
+import trainer from '../reducers/trainer'
 
 /* Combine reducers */
 import { combineReducers } from 'redux'
 
 const rootReducer = combineReducers({
-  pokemon: pokemonReducer,
-  user: userReducer
+  pokemon,
+  user,
+  trainer
 })
 
 export default rootReducer
