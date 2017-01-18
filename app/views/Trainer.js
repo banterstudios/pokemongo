@@ -62,7 +62,7 @@ class Trainer extends Component {
 			<section className="trainer">
 
 				<NavbarContainer
-					name={this.props.navName}
+					name={this.props.trainer.name || this.props.navName}
 					onBurgerClick={this.onBurgerClick}
 					onBurgerMenuToggle={this.onBurgerClick} />
 
@@ -75,6 +75,9 @@ class Trainer extends Component {
 	}
 }
 
+Trainer.defaultProps = {
+	navName : 'Trainer'
+}
 
 Trainer.contextTypes = {
   router: PropTypes.object.isRequired
